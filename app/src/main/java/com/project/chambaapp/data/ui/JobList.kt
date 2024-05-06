@@ -1,7 +1,7 @@
-package com.project.chambaapp.data
+package com.project.chambaapp.data.ui
 
 data class JobList (
     val name:String,
-    val review:String,
+    val username:String,
     val photo:String
 )

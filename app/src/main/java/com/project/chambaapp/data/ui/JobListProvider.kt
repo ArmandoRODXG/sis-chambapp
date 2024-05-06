@@ -1,4 +1,4 @@
-package com.project.chambaapp.data
+package com.project.chambaapp.data.ui
 
 class JobListProvider {
     companion object{

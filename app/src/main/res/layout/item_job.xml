@@ -48,7 +48,7 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/tvReview"
+                    android:id="@+id/tvUsername"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Usuario Verificado"
@@ -63,10 +63,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:numStars="5"
-                    android:rating="4.3"
+                    android:rating="4.5"
                     android:stepSize="0.1"
                     android:progressTint="@color/myRatingColor"
                     android:progressBackgroundTint="@color/myEmptyRatingColor"
+
                     android:scaleX="0.8"
                     android:scaleY="0.8" />
 

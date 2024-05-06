@@ -19,6 +19,6 @@
     <color name="gray">#C3C3C3</color>
 
     <color name="myRatingColor">#FFD700</color> <!-- Color dorado para la parte llena -->
-    <color name="myEmptyRatingColor">#CCCCCC</color> <!-- Color gris para la parte vacía -->
+    <color name="myEmptyRatingColor">#D1D1D1</color> <!-- Color gris para la parte vacía -->
 
 </resources>
