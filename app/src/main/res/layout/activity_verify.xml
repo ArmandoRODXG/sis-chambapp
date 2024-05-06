@@ -2,8 +2,78 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/text"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bottomsColor"
+    app:layout_constraintEnd_toEndOf="parent"
     tools:context=".activities.WorkerViews.VerifyActivity">
+
+    <TextView
+        android:id="@+id/textMain3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="392dp"
+        android:gravity="center"
+        android:text="Es momento de verificarte"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/imageView"
+        app:layout_constraintEnd_toEndOf="@id/textView2"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="@id/textView2"
+        app:layout_constraintTop_toBottomOf="@id/textView2"
+        app:layout_constraintVertical_bias="0.0"
+        tools:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textMain2"
+        android:layout_width="372dp"
+        android:layout_height="76dp"
+        android:layout_marginBottom="88dp"
+        android:gravity="center"
+        android:text="Sube una foto de tu ine para poder verificarte"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/btnRegisterJob2"
+        app:layout_constraintEnd_toEndOf="@id/btnRegisterJob2"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="@id/btnRegisterJob2"
+        app:layout_constraintTop_toBottomOf="@+id/btnLog"
+        tools:textStyle="bold" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnRegisterJob2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/bottoms_style"
+        android:text="Verificame"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/textView2"
+        app:layout_constraintStart_toStartOf="@id/textView2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="120dp"
+        android:text="Bienvenido"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.991"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="157dp"
+        android:layout_height="142dp"
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="40dp"
+        app:layout_constraintEnd_toEndOf="@id/textMain3"
+        app:layout_constraintTop_toTopOf="@id/textMain3"
+        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
