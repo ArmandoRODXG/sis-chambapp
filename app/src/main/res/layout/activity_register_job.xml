@@ -134,7 +134,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/rounded_text"
-        android:drawableLeft="@drawable/rc_empty"
         android:drawablePadding="10dp"
         android:ems="10"
         android:hint="Confirmar contraseña"
