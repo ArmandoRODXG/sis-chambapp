@@ -1,4 +1,4 @@
-package com.project.chambaapp.activities
+package com.project.chambaapp.activities.WorkerViews
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

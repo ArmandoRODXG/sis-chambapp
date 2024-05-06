@@ -1,12 +1,12 @@
-package com.project.chambaapp.activities
+package com.project.chambaapp.activities.UserViews
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.project.chambaapp.R
 
-class ProfileUserActivity : AppCompatActivity() {
+class RegisterUserActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile_user)
+        setContentView(R.layout.activity_register_user)
     }
 }

@@ -15,31 +15,34 @@
         android:theme="@style/Theme.ChambaApp"
         tools:targetApi="31">
         <activity
-            android:name=".activities.PayActivity"
+            android:name=".activities.WorkerViews.RegisterJob2Activity"
             android:exported="false" />
         <activity
-            android:name=".activities.VerifyActivity"
+            android:name=".activities.WorkerViews.PayActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.RegisterUserActivity"
+            android:name=".activities.WorkerViews.VerifyActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.RegisterJobActivity"
+            android:name=".activities.UserViews.RegisterUserActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.InitActivity"
+            android:name=".activities.WorkerViews.RegisterJobActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.ViewProfileJobActivity"
+            android:name=".activities.UserViews.InitUserActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.ProfileUserActivity"
+            android:name=".activities.UserViews.ViewProfileJobActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.ProfileJobActivity"
+            android:name=".activities.UserViews.ProfileUserActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.SearchActivity"
+            android:name=".activities.WorkerViews.ProfileJobActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.UserViews.SearchActivity"
             android:exported="false" />
         <activity
             android:name=".activities.SignUpActivityM"

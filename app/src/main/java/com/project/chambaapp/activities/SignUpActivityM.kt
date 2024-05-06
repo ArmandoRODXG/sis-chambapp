@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.project.chambaapp.databinding.ActivitySignUpMBinding
 import com.project.chambaapp.R
+import com.project.chambaapp.activities.UserViews.InitUserActivity
+import com.project.chambaapp.activities.WorkerViews.RegisterJobActivity
 
 class SignUpActivityM : AppCompatActivity() {
 
@@ -18,10 +20,14 @@ class SignUpActivityM : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnLog.setOnClickListener {
-            val intent = Intent(this,SearchActivity::class.java)
+            val intent = Intent(this, InitUserActivity::class.java)
             startActivity(intent)
         }
 
+        binding.btnReg.setOnClickListener {
+            val intent = Intent(this, RegisterJobActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 }

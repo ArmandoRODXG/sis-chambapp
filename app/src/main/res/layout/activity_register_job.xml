@@ -4,6 +4,147 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.RegisterJobActivity">
+    tools:context=".activities.WorkerViews.RegisterJobActivity"
+    android:layout_gravity="center"
+    android:background="@color/bottomsColor"
+    >
 
+
+    <TextView
+        android:id="@+id/tvRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registro de Trabajador"
+        android:textColor="#EAE9E9"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.110000014" />
+
+    <EditText
+        android:id="@+id/inputRegisterNameJob"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_text"
+        android:ems="10"
+        android:hint="Nombre"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRegister" />
+
+    <EditText
+        android:id="@+id/inputRegisterApellidoJob"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_text"
+        android:ems="10"
+        android:hint="Apellidos"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/inputRegisterNameJob"
+        app:layout_constraintStart_toStartOf="@+id/inputRegisterNameJob"
+        app:layout_constraintTop_toBottomOf="@+id/inputRegisterNameJob" />
+
+    <EditText
+        android:id="@+id/inputRegisterUsernameJob"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_text"
+        android:ems="10"
+        android:hint="Nombre de usuario"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/inputRegisterApellidoJob"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/inputRegisterApellidoJob"
+        app:layout_constraintTop_toBottomOf="@+id/inputRegisterApellidoJob" />
+
+    <EditText
+        android:id="@+id/inputRegisterMailJob"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_text"
+        android:ems="10"
+        android:hint="Correo"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/inputRegisterUsernameJob"
+        app:layout_constraintStart_toStartOf="@+id/inputRegisterUsernameJob"
+        app:layout_constraintTop_toBottomOf="@+id/inputRegisterUsernameJob" />
+
+    <EditText
+        android:id="@+id/inputRegisterPasswordJob"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_text"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColorHint="#FFFFFF"
+        android:password="true"
+        app:layout_constraintEnd_toEndOf="@+id/inputRegisterMailJob"
+        app:layout_constraintStart_toStartOf="@+id/inputRegisterMailJob"
+        app:layout_constraintTop_toBottomOf="@+id/inputRegisterMailJob" />
+
+    <EditText
+        android:id="@+id/inputRegisterPasswordCJob"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_text"
+        android:ems="10"
+        android:hint="Confirmar contraseña"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColorHint="#FFFFFF"
+        android:password="true"
+        app:layout_constraintEnd_toEndOf="@+id/inputRegisterPasswordJob"
+        app:layout_constraintStart_toStartOf="@+id/inputRegisterPasswordJob"
+        app:layout_constraintTop_toBottomOf="@+id/inputRegisterPasswordJob" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnRegisterJob"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottoms_style"
+        android:text="Registrarme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/inputRegisterPasswordCJob"
+        app:layout_constraintStart_toStartOf="@+id/inputRegisterPasswordCJob"
+        app:layout_constraintTop_toBottomOf="@+id/inputRegisterPasswordCJob" />
 </androidx.constraintlayout.widget.ConstraintLayout>
