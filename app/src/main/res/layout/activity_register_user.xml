@@ -4,6 +4,181 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.UserViews.RegisterUserActivity">
+    tools:context=".activities.UserViews.RegisterUserActivity"
+    android:layout_gravity="center"
+    android:background="@color/bottomsColor">
+
+    <TextView
+        android:id="@+id/tvRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/registro_de_usuario"
+        android:textColor="#EAE9E9"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.110000014" />
+
+    <EditText
+        android:id="@+id/inputRegisterNames"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/rounded_text"
+        android:ems="10"
+        android:hint="@string/nombre_s"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRegister" />
+
+    <EditText
+        android:id="@+id/inputRegisterApellido1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_text"
+        android:ems="10"
+        android:hint="@string/primer_apellido"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/inputRegisterNames"
+        app:layout_constraintStart_toStartOf="@+id/inputRegisterNames"
+        app:layout_constraintTop_toBottomOf="@+id/inputRegisterNames" />
+
+    <EditText
+        android:id="@+id/inputRegisterApellido2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_text"
+        android:ems="10"
+        android:hint="@string/segundo_apellido"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/inputRegisterApellido1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/inputRegisterApellido1"
+        app:layout_constraintTop_toBottomOf="@+id/inputRegisterApellido1" />
+
+    <EditText
+        android:id="@+id/inputRegisterTelefono"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_text"
+        android:ems="10"
+        android:hint="@string/correo_electronico"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/inputRegisterApellido2"
+        app:layout_constraintStart_toStartOf="@+id/inputRegisterApellido2"
+        app:layout_constraintTop_toBottomOf="@+id/inputRegisterApellido2" />
+
+    <EditText
+        android:id="@+id/inputRegisterMail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_text"
+        android:ems="10"
+        android:hint="@string/correo_electronico"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/inputRegisterTelefono"
+        app:layout_constraintStart_toStartOf="@+id/inputRegisterTelefono"
+        app:layout_constraintTop_toBottomOf="@+id/inputRegisterTelefono" />
+
+    <EditText
+        android:id="@+id/inputRegisterDomicilio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_text"
+        android:ems="10"
+        android:hint="@string/domicilio"
+        android:inputType="text"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/inputRegisterMail"
+        app:layout_constraintStart_toStartOf="@+id/inputRegisterMail"
+        app:layout_constraintTop_toBottomOf="@+id/inputRegisterMail" />
+
+    <EditText
+        android:id="@+id/inputRegisterPostal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_text"
+        android:ems="10"
+        android:hint="@string/c_digo_postal"
+        android:inputType="number"
+        android:paddingLeft="20dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="10dp"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/inputRegisterDomicilio"
+        app:layout_constraintStart_toStartOf="@+id/inputRegisterDomicilio"
+        app:layout_constraintTop_toBottomOf="@+id/inputRegisterDomicilio" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnRegisterJob"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bottoms_style"
+        android:text="@string/continuar"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/inputRegisterPostal"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="@+id/inputRegisterPostal"
+        app:layout_constraintTop_toBottomOf="@+id/inputRegisterPostal"
+        app:layout_constraintVertical_bias="0.131" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnReturn"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_return"
+        android:text="@string/regresar"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnRegisterJob"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnRegisterJob"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegisterJob"
+        app:layout_constraintVertical_bias="0.285" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
