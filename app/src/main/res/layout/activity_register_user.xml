@@ -61,25 +61,6 @@
         app:layout_constraintTop_toBottomOf="@+id/inputRegisterNames" />
 
     <EditText
-        android:id="@+id/inputRegisterApellido2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/rounded_text"
-        android:ems="10"
-        android:hint="segundo_apellido"
-        android:inputType="text"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/inputRegisterApellido1"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/inputRegisterApellido1"
-        app:layout_constraintTop_toBottomOf="@+id/inputRegisterApellido1" />
-
-    <EditText
         android:id="@+id/inputRegisterTelefono"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -93,9 +74,10 @@
         android:paddingRight="10dp"
         android:paddingBottom="10dp"
         android:textColorHint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/inputRegisterApellido2"
-        app:layout_constraintStart_toStartOf="@+id/inputRegisterApellido2"
-        app:layout_constraintTop_toBottomOf="@+id/inputRegisterApellido2" />
+        app:layout_constraintEnd_toEndOf="@+id/inputRegisterApellido1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/inputRegisterApellido1"
+        app:layout_constraintTop_toBottomOf="@+id/inputRegisterApellido1" />
 
     <EditText
         android:id="@+id/inputRegisterMail"
@@ -152,7 +134,7 @@
         app:layout_constraintTop_toBottomOf="@id/inputRegisterDomicilio" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnRegisterJob"
+        android:id="@+id/btnContinueUser"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:background="@drawable/bottoms_style"
@@ -173,10 +155,10 @@
         android:text="regresar"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btnRegisterJob"
+        app:layout_constraintEnd_toEndOf="@+id/btnContinueUser"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/btnRegisterJob"
-        app:layout_constraintTop_toBottomOf="@+id/btnRegisterJob"
+        app:layout_constraintStart_toStartOf="@+id/btnContinueUser"
+        app:layout_constraintTop_toBottomOf="@+id/btnContinueUser"
         app:layout_constraintVertical_bias="0.285" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

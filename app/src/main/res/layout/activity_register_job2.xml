@@ -25,7 +25,7 @@
         app:layout_constraintVertical_bias="0.110000014" />
 
     <EditText
-        android:id="@+id/inputRegisterNameJob"
+        android:id="@+id/inputRegisterCodPJob"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -45,22 +45,22 @@
         app:layout_constraintTop_toBottomOf="@+id/tvRegister" />
 
     <EditText
-        android:id="@+id/inputRegisterApellidoJob"
+        android:id="@+id/inputRegisterNumJob"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/rounded_text"
         android:ems="10"
-        android:hint="Estado"
+        android:hint="Número de celular"
         android:inputType="text"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingRight="10dp"
         android:paddingBottom="10dp"
         android:textColorHint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/inputRegisterNameJob"
-        app:layout_constraintStart_toStartOf="@+id/inputRegisterNameJob"
-        app:layout_constraintTop_toBottomOf="@+id/inputRegisterNameJob" />
+        app:layout_constraintEnd_toEndOf="@+id/inputRegisterCodPJob"
+        app:layout_constraintStart_toStartOf="@+id/inputRegisterCodPJob"
+        app:layout_constraintTop_toBottomOf="@+id/inputRegisterCodPJob" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnRegisterJob"
@@ -69,8 +69,8 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/bottoms_style"
         android:text="Registrarme"
-        app:layout_constraintEnd_toEndOf="@+id/inputRegisterApellidoJob"
+        app:layout_constraintEnd_toEndOf="@+id/inputRegisterNumJob"
         app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="@+id/inputRegisterApellidoJob"
-        app:layout_constraintTop_toBottomOf="@+id/inputRegisterApellidoJob" />
+        app:layout_constraintStart_toStartOf="@+id/inputRegisterNumJob"
+        app:layout_constraintTop_toBottomOf="@+id/inputRegisterNumJob" />
 </androidx.constraintlayout.widget.ConstraintLayout>
