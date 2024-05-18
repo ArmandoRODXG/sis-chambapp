@@ -4,11 +4,14 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.project.chambaapp.R
 import com.project.chambaapp.data.Entities.ContratistaItem
 import com.project.chambaapp.data.RetrofitClient
 import com.project.chambaapp.data.Services.ContratistasService
+import com.project.chambaapp.data.Services.OficioRequest
 import com.project.chambaapp.databinding.ActivitySearchBinding
 import com.project.getexample.JobAdapter
 import retrofit2.Call
@@ -29,10 +32,24 @@ class SearchActivity : AppCompatActivity() {
         rvMain = binding.recyclerJobList
         rvMain.layoutManager = LinearLayoutManager(this)
 
-        // Inicializa el servicio Retrofit
+        var selectedItem: String? = null
+
+        val items = listOf(
+            "Albañil","Plomero","Carpintero",
+            "Pintor","Fontanero","Jardinero",
+            "Instalador de Pisos","Techador","Vidriero",
+            "Cerrajero","Limpieza y mantenimiento"
+        )
+        val ddAdapter = ArrayAdapter(this, R.layout.list_job_select, items)
+        binding.dropdownFieldSearchjob.setAdapter(ddAdapter)
+
+        binding.dropdownFieldSearchjob.setOnItemClickListener { parent, view, position, id ->
+            selectedItem = parent.getItemAtPosition(position).toString()
+            Log.d("Trabajo seleccionado", "$selectedItem")
+        }
+
         service = initRetrofitService()
 
-        // Inicializa el adaptador vacío
         myAdapter = JobAdapter(baseContext, emptyList()) { contratista ->
             val intent = Intent(this@SearchActivity, ViewProfileJobActivity::class.java).apply {
                 putExtra("nombre", contratista.nombre)
@@ -44,19 +61,23 @@ class SearchActivity : AppCompatActivity() {
         }
         rvMain.adapter = myAdapter
 
-        // Inicia la carga de datos
-        initRecyclerView()
+
+        binding.buttonSearch.setOnClickListener {
+            initRecyclerView(selectedItem!!)
+        }
     }
 
     private fun initRetrofitService(): ContratistasService {
-//        val baseUrl = "http:///contratistas/"
-        val baseUrl = "https://is-chambapp-5bf6977200ac.herokuapp.com/contratistas/"
+//        val baseUrl = "http://192.168.1.3:5000/buscar_contratista/"
+        val baseUrl = "http://is-chambapp-5bf6977200ac.herokuapp.com/buscar_contratista/"
+
         return RetrofitClient.createService(baseUrl)
     }
 
-    private fun initRecyclerView() {
+    private fun initRecyclerView(selectedItem: String) {
         val idUsuario = intent.getStringExtra("LoggedUser")
-        val retroData = service.obtenerContratistas()
+        val request = OficioRequest(selectedItem)
+        val retroData = service.buscarContratista(request)
 
         retroData.enqueue(object : retrofit2.Callback<List<ContratistaItem>> {
             override fun onResponse(
@@ -65,7 +86,6 @@ class SearchActivity : AppCompatActivity() {
             ) {
                 val data = response.body() ?: emptyList()
 
-                // Actualiza los datos del adaptador
                 myAdapter.updateData(data)
 
                 Log.d("data", data.toString())
@@ -81,7 +101,7 @@ class SearchActivity : AppCompatActivity() {
         super.onResume()
         if (myAdapter.itemCount > 0) {
             myAdapter.clearData()
-            initRecyclerView()
+//            initRecyclerView()
         }
     }
 }

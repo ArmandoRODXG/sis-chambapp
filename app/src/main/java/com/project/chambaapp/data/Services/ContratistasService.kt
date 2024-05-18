@@ -22,6 +22,10 @@ data class IdContratistaRequest(
     val idContratista: String
 )
 
+data class OficioRequest(
+    val oficio: String
+)
+
 data class LoginResponse(
     val message: String,
     val usuarioId: String
@@ -33,6 +37,7 @@ data class ReviewRequest(
     val Valoracion: Float,
     val Fecha: String
 )
+
 data class OficiosResponse(
     val oficios: Array<String>
 )
@@ -52,4 +57,7 @@ interface ContratistasService {
 
     @POST("/oficios")
     fun obtenerOficios(@Body body: IdContratistaRequest): Call<OficiosResponse>
+
+    @POST("/buscar_contratista")
+    fun buscarContratista(@Body oficio: OficioRequest): Call<List<ContratistaItem>>
 }
