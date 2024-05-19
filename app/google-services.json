@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "985177472242",
+    "firebase_url": "https://chamabappubicaciones-default-rtdb.firebaseio.com",
+    "project_id": "chamabappubicaciones",
+    "storage_bucket": "chamabappubicaciones.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985177472242:android:a392f07ded110d8c80a46b",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsTGjpAV5RC88x3JyOwCylyh35el7ZShk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985177472242:android:4bed2d12e1381aab80a46b",
+        "android_client_info": {
+          "package_name": "com.project.chambaapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsTGjpAV5RC88x3JyOwCylyh35el7ZShk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

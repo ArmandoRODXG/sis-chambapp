@@ -1,9 +1,11 @@
 package com.project.chambaapp.activities
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.project.chambaapp.R
+import android.util.Log
+import com.project.chambaapp.api_services.LocationServicesManager
 import com.project.chambaapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -29,6 +31,22 @@ class MainActivity : AppCompatActivity() {
                 putExtra("TypeUser",contratista)
             }
             startActivity(intent)
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == LocationServicesManager.LOCATION_PERMISSION_REQUEST_CODE) {
+            if ((grantResults.isNotEmpty() &&
+                        grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                Log.e("onRequestPermissionsResult", "Se validan los permisos")
+            } else {
+                Log.e("onRequestPermissionsResult", "No se validan los permisos")
+            }
         }
     }
 }
