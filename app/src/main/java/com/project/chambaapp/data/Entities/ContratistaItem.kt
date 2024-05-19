@@ -29,5 +29,6 @@ data class ContratistaItem(
     val direccion: String,
     val codigo_postal: String,
     val rating: Float,
-    val verificado: String
+    val verificado: String,
+    val oficios: String
 )

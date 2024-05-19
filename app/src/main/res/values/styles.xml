@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Define un estilo para el TextInputLayout -->
+    <style name="CustomTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/white</item>
+        <item name="android:textColorHint">@color/white</item>
+        <item name="hintTextColor">@color/white</item>
+        <item name="endIconMode">dropdown_menu</item>
+        <item name="endIconTint">@color/white</item>
+    </style>
+
+    <!-- Define un estilo para el AutoCompleteTextView -->
+    <style name="CustomAutoCompleteTextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/custom_autocomplete_background</item>
+    </style>
+
+</resources>

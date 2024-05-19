@@ -32,7 +32,7 @@
         android:background="@drawable/rounded_text"
         android:ems="10"
         android:hint="Nombre de Usuario (Alias/Apodo)"
-        android:inputType="number"
+        android:inputType="text"
         android:paddingLeft="20dp"
         android:paddingTop="10dp"
         android:paddingRight="10dp"

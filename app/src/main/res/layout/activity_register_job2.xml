@@ -1,76 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.WorkerViews.RegisterJobActivity"
-    android:layout_gravity="center"
-    android:background="@color/bottomsColor"
-    >
+    android:background="@color/bottomsColor">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center">
 
-    <TextView
-        android:id="@+id/tvRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Registro de Trabajador"
-        android:textColor="#EAE9E9"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.110000014" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="32dp"
+            android:gravity="center_horizontal">
 
-    <EditText
-        android:id="@+id/inputRegisterCodPJob"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/rounded_text"
-        android:ems="10"
-        android:hint="Código postal"
-        android:inputType="text"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvRegister" />
+            <TextView
+                android:id="@+id/tvRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Registro de Trabajador"
+                android:textColor="#EAE9E9"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="32dp" />
 
-    <EditText
-        android:id="@+id/inputRegisterNumJob"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/rounded_text"
-        android:ems="10"
-        android:hint="Número de celular"
-        android:inputType="text"
-        android:paddingLeft="20dp"
-        android:paddingTop="10dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="10dp"
-        android:textColorHint="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="@+id/inputRegisterCodPJob"
-        app:layout_constraintStart_toStartOf="@+id/inputRegisterCodPJob"
-        app:layout_constraintTop_toBottomOf="@+id/inputRegisterCodPJob" />
+            <EditText
+                android:id="@+id/inputRegisterCodPJob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_text"
+                android:ems="10"
+                android:hint="Código postal"
+                android:inputType="number"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColorHint="#FFFFFF"
+                android:layout_marginBottom="16dp" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnRegisterJob"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/bottoms_style"
-        android:text="Registrarme"
-        app:layout_constraintEnd_toEndOf="@+id/inputRegisterNumJob"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="@+id/inputRegisterNumJob"
-        app:layout_constraintTop_toBottomOf="@+id/inputRegisterNumJob" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/inputRegisterNumJob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_text"
+                android:ems="10"
+                android:hint="Número de celular"
+                android:inputType="text"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColorHint="#FFFFFF"
+                android:layout_marginBottom="16dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Estado"
+                style="@style/CustomTextInputLayout"
+                android:layout_marginBottom="16dp">
+
+                <AutoCompleteTextView
+                    android:id="@+id/dropdown_field_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"
+                    style="@style/CustomAutoCompleteTextView"
+                    android:padding="10dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp"
+                android:gravity="center_vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Oficios"
+                    style="@style/CustomTextInputLayout"
+                    android:layout_marginEnd="8dp">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/dropdown_field_oficios"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none"
+                        style="@style/CustomAutoCompleteTextView"
+                        android:padding="10dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnAddOficio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Añadir"
+                    android:background="@drawable/bottoms_style"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llOficiosContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="16dp">
+                <!-- Los oficios se agregarán dinámicamente aquí -->
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/inputDescriptionJob"
+                android:layout_width="match_parent"
+                android:layout_height="136dp"
+                android:background="@drawable/rounded_text"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Añade una descripción de ti..."
+                android:gravity="top|start"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="10dp"
+                android:textColorHint="#FFFFFF"
+                android:layout_marginBottom="80dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnRegisterJob"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bottoms_style"
+                android:text="Registrarme" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
