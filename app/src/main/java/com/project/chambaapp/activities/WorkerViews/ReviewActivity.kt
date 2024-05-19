@@ -43,6 +43,7 @@ class ReviewActivity : AppCompatActivity() {
                 registrarResena(descripcion, idContratista, idUsuario, valoracion, fecha)
             }
         }
+
     }
 
     private fun obtenerFechaActual(): String {
