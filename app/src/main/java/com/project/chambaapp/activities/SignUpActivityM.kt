@@ -10,6 +10,7 @@ import com.project.chambaapp.R
 import com.project.chambaapp.activities.UserViews.RegisterUserActivity
 import com.project.chambaapp.activities.UserViews.SearchActivity
 import com.project.chambaapp.activities.WorkerViews.RegisterJobActivity
+import com.project.chambaapp.api_services.LocationServicesManager
 import com.project.chambaapp.data.RetrofitClient
 import com.project.chambaapp.data.Services.ContratistasService
 import com.project.chambaapp.data.Services.IdContratistaRequest
@@ -139,6 +140,9 @@ class SignUpActivityM : AppCompatActivity() {
                                     putExtra("LoggedUser", loginResponse.usuarioId)
                                 }
                                 startActivity(intent)
+
+                                //Inicia Servicio de GPS continuo cada minuto y medio
+                                LocationServicesManager.kickstartLocationService(this@SignUpActivityM)
                             }
                         } else {
                             Toast.makeText(this@SignUpActivityM, "Credenciales inválidas", Toast.LENGTH_SHORT).show()
@@ -151,4 +155,5 @@ class SignUpActivityM : AppCompatActivity() {
                 })
         }
     }
+
 }
