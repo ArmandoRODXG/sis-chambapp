@@ -124,8 +124,8 @@ class RegisterJob2Activity : AppCompatActivity() {
             selectedItem,presentacion,num_celular,"123",
             codigo_postal,0.0.toFloat(),"false",oficiosString)
 
-        val baseUrl = "http://192.168.1.3:5000/contratistas/"
-//        val baseUrl = "https://is-chambapp-5bf6977200ac.herokuapp.com/contratistas/"
+//        val baseUrl = "http:///contratistas/"
+        val baseUrl = "https://is-chambapp-5bf6977200ac.herokuapp.com/contratistas/"
         val service = RetrofitClient.createService<ContratistasService>(baseUrl)
 
         service.agregarContratista(contratista).enqueue(object : Callback<Void> {
