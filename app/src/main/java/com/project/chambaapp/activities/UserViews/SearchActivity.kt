@@ -68,7 +68,7 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun initRetrofitService(): ContratistasService {
-//        val baseUrl = "http://192.168.1.3:5000/buscar_contratista/"
+//        val baseUrl = "http:///buscar_contratista/"
         val baseUrl = "http://is-chambapp-5bf6977200ac.herokuapp.com/buscar_contratista/"
 
         return RetrofitClient.createService(baseUrl)

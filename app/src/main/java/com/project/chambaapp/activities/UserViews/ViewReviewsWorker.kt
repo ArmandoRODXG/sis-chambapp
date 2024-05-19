@@ -40,8 +40,8 @@ class ViewReviewsWorker : AppCompatActivity() {
     }
 
     private fun initRetrofitService(): UsuariosService {
-        val baseUrl = "http://192.168.1.3:5000/get_review/"
-//        val baseUrl = "https://is-chambapp-5bf6977200ac.herokuapp.com/buscar_contratista/"
+//        val baseUrl = "http:///get_review/"
+        val baseUrl = "https://is-chambapp-5bf6977200ac.herokuapp.com/get_review/"
 
         return RetrofitClient.createService(baseUrl)
     }
