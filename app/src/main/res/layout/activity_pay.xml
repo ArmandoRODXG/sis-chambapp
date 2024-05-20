@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -32,14 +31,10 @@
         android:text="Mayor alcance a personas"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintBaseline_toBottomOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/vLine5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
-        app:layout_constraintVertical_bias="0.115"
-        tools:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/imageView4"
+        app:layout_constraintVertical_bias="0.041" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -49,7 +44,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
-        app:layout_constraintVertical_bias="0.266"
+        app:layout_constraintVertical_bias="0.156"
         app:srcCompat="@android:drawable/radiobutton_off_background" />
 
     <TextView
@@ -65,10 +60,10 @@
         app:layout_constraintBaseline_toBottomOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/textView14"
+        app:layout_constraintTop_toTopOf="@id/textView17"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_constraintLeft_toLeftOf="parent" />
 
@@ -89,16 +84,12 @@
         android:text="Categoría exclusiva"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintBaseline_toBottomOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/vLine5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.103"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@id/vLine5"
-        app:layout_constraintVertical_bias="0.558"
-        tools:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintHorizontal_bias="0.395"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imageView6"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView13"
@@ -107,14 +98,12 @@
         android:text="Beneficios"
         android:textColor="#000000"
         android:textSize="30sp"
-        app:layout_constraintBaseline_toBottomOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/vLine5"
-        app:layout_constraintVertical_bias="0.073"
-        tools:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/vLine5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/imageView6"
+        app:layout_constraintVertical_bias="0.395" />
 
     <TextView
         android:id="@+id/textView10"
@@ -123,21 +112,17 @@
         android:text="Aparecer en favoritos"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintBaseline_toBottomOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/textView14"
+        app:layout_constraintBottom_toBottomOf="@id/vLine5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.141"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView17"
-        app:layout_constraintVertical_bias="0.333"
-        tools:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toEndOf="@id/imageView3"
+        app:layout_constraintTop_toTopOf="@id/imageView3"
+        app:layout_constraintVertical_bias="0.0" />
 
     <View
         android:id="@+id/vLine5"
         android:layout_width="match_parent"
-        android:layout_height="20px"
+        android:layout_height="18dp"
 
         android:layout_marginTop="24dp"
         android:background="@drawable/line_degraded"
@@ -190,13 +175,13 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
         android:text="$89.00 por mes"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView16"
-        tools:layout_constraintRight_toRightOf="parent"
-        />
-
+        app:layout_constraintVertical_bias="0.933"
+        tools:layout_constraintRight_toRightOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
