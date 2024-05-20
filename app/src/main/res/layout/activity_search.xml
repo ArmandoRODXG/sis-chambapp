@@ -6,56 +6,101 @@
     android:layout_height="match_parent"
     tools:context=".activities.UserViews.SearchActivity">
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:padding="10dp">
+        android:layout_height="175dp"
+        android:background="@color/bottomsColor">
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="388dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:hint="Opciones de busqueda"
+            app:layout_constraintEnd_toEndOf="@+id/switch1"
+            app:layout_constraintStart_toStartOf="@+id/switch1"
+            app:layout_constraintTop_toBottomOf="@+id/switch1">
+
+            <AutoCompleteTextView
+                android:id="@+id/dropdown_field_filter"
+                android:layout_width="375dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="28dp"
+                android:background="@color/backgroundA"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout"
+            android:layout_width="384dp"
+            android:layout_height="64dp"
+            android:layout_marginTop="104dp"
+            android:gravity="center"
             android:orientation="horizontal"
-            android:gravity="center">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.481"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:hint="¿Qué estás buscando?"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+                android:textColor="#FFFFFF"
+                app:boxBackgroundColor="@color/myRatingColor"
+                app:hintTextAppearance="?attr/textAppearanceBody1"
+                app:hintTextColor="@color/backgroundA">
 
                 <AutoCompleteTextView
                     android:id="@+id/dropdown_field_searchjob"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="none"/>
+                    android:layout_height="44dp"
+                    android:background="@color/backgroundA"
+                    android:inputType="none" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_search"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:text="Buscar"
-                android:layout_marginStart="10dp"/>
+                android:background="@drawable/bottoms_style"/>
 
         </LinearLayout>
 
-    </FrameLayout>
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch1"
+            android:layout_width="367dp"
+            android:layout_height="31dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/myRatingColor"
+            android:text="Busqueda Por Geolocalizacion"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="10dp"
+        android:layout_height="555dp"
         android:layout_gravity="bottom"
         android:layout_marginTop="70dp"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:paddingTop="10dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerJobList"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="612dp" />
 
     </FrameLayout>
 

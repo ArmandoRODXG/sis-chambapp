@@ -7,6 +7,7 @@ object WorkerSingleton {
     private const val PREFS_NAME = "WorkerPrefs"
     private const val KEY_WORKER_ID = "worker_id"
     private const val KEY_WORKER_JOBS = "worker_jobs"
+    private const val KEY_WORKER_STATE = "worker_state"
 
     // Función para obtener SharedPreferences
     private fun getSharedPreferences(context: Context): SharedPreferences {
@@ -32,6 +33,15 @@ object WorkerSingleton {
     fun getWorkerJobs(context: Context): Array<Long> {
         val jobsStringSet = getSharedPreferences(context).getStringSet(KEY_WORKER_JOBS, emptySet())
         return jobsStringSet?.map { it.toLong() }?.toTypedArray() ?: emptyArray()
+    }
+
+    fun setWorkerState(context: Context, state: Short) {
+        getSharedPreferences(context).edit().putInt(KEY_WORKER_STATE, state.toInt() ?: 0).apply()
+    }
+
+    fun getWorkerState(context: Context): Int {
+        val state = getSharedPreferences(context).getInt(KEY_WORKER_STATE, 0)
+        return if (state == 0) 0 else state
     }
 
     // Método para limpiar los datos
