@@ -8,24 +8,25 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="175dp"
+        android:layout_height="193dp"
         android:background="@color/bottomsColor">
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="388dp"
-            android:layout_height="52dp"
+            android:layout_width="395dp"
+            android:layout_height="72dp"
             android:layout_marginTop="8dp"
             android:layout_weight="1"
             android:hint="Opciones de busqueda"
             app:layout_constraintEnd_toEndOf="@+id/switch1"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/switch1"
             app:layout_constraintTop_toBottomOf="@+id/switch1">
 
             <AutoCompleteTextView
                 android:id="@+id/dropdown_field_filter"
-                android:layout_width="375dp"
-                android:layout_height="40dp"
+                android:layout_width="384dp"
+                android:layout_height="51dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="28dp"
                 android:background="@color/backgroundA"
@@ -34,13 +35,13 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="384dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="104dp"
+            android:layout_width="390dp"
+            android:layout_height="68dp"
+            android:layout_marginTop="120dp"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.481"
+            app:layout_constraintHorizontal_bias="0.476"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -58,7 +59,7 @@
                 <AutoCompleteTextView
                     android:id="@+id/dropdown_field_searchjob"
                     android:layout_width="match_parent"
-                    android:layout_height="44dp"
+                    android:layout_height="51dp"
                     android:background="@color/backgroundA"
                     android:inputType="none" />
 
@@ -66,21 +67,21 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button_search"
-                android:layout_width="wrap_content"
+                android:layout_width="77dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
-                android:text="Buscar"
-                android:background="@drawable/bottoms_style"/>
+                android:background="@drawable/bottoms_style"
+                android:text="Buscar" />
 
         </LinearLayout>
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switch1"
-            android:layout_width="367dp"
-            android:layout_height="31dp"
+            android:layout_width="384dp"
+            android:layout_height="36dp"
             android:layout_marginTop="16dp"
             android:background="@color/myRatingColor"
-            android:text="Busqueda Por Geolocalizacion"
+            android:text="   Busqueda Por Geolocalizacion"
             app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -91,16 +92,21 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="555dp"
+        android:layout_height="530dp"
         android:layout_gravity="bottom"
         android:layout_marginTop="70dp"
         android:background="@color/white"
         android:paddingTop="10dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerJobList"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="612dp" />
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerJobList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </ScrollView>
 
     </FrameLayout>
 

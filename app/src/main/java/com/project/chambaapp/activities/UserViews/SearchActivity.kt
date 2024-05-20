@@ -15,6 +15,7 @@ import com.project.chambaapp.api_services.LocationTriggeredAPI
 import com.project.chambaapp.api_services.UserLocation
 import com.project.chambaapp.api_services.WorkerLocation
 import com.project.chambaapp.data.Entities.ContratistaItem
+import com.project.chambaapp.data.Entities.WorkersFilter
 import com.project.chambaapp.data.RetrofitClient
 import com.project.chambaapp.data.Services.ContratistasService
 import com.project.chambaapp.data.Services.GPSSearchRequest
@@ -32,6 +33,13 @@ class SearchActivity : AppCompatActivity() {
     private lateinit var service: ContratistasService
     private lateinit var serviceGPS: ContratistasService
     private lateinit var locationTriggered: LocationTriggeredAPI
+    private var filters = listOf(
+        "Ninguna",
+        "Más de 3 Estrellas",
+        "Más de 4 Estrellas",
+        "Menos de 3 Estrellas",
+        "Solo Verificados",
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,14 +61,6 @@ class SearchActivity : AppCompatActivity() {
             "Cerrajero","Limpieza y mantenimiento"
         )
 
-        val filters = listOf(
-            "Ninguna",
-            "Más de 3 Estrellas",
-            "Menos de 3 Estrellas",
-            "Solo Disponibles",
-            "Solo Verificados"
-        )
-
         val ddAdapter = ArrayAdapter(this, R.layout.list_job_select, items)
         binding.dropdownFieldSearchjob.setAdapter(ddAdapter)
 
@@ -74,9 +74,35 @@ class SearchActivity : AppCompatActivity() {
 
         binding.dropdownFieldFilter.setOnItemClickListener { parent, view, position, id ->
             selectedFilter = parent.getItemAtPosition(position).toString()
-            Log.d("Trabajo seleccionado", "$selectedItem")
+            Log.d("Filtro seleccionado", "$selectedFilter")
         }
 
+        binding.switch1.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                filters = listOf(
+                    "Ninguna",
+                    "Más de 3 Estrellas",
+                    "Más de 4 Estrellas",
+                    "Menos de 3 Estrellas",
+                    "Solo Verificados",
+                    "Solo Disponibles",
+                    "Filtrar No Disponibles",
+                    "A menos de 500 metros de distancia",
+                    "A menos de 1 km de distancia",
+                )
+            }
+             else {
+            filters = listOf(
+                "Ninguna",
+                "Más de 3 Estrellas",
+                "Más de 4 Estrellas",
+                "Menos de 3 Estrellas",
+                "Solo Verificados",
+            )
+            }
+            val eeAdapter = ArrayAdapter(this, R.layout.list_job_select, filters)
+            binding.dropdownFieldFilter.setAdapter(eeAdapter)
+        }
         service = initRetrofitService()
         serviceGPS = initRetrofitServiceGPS()
 
@@ -92,10 +118,14 @@ class SearchActivity : AppCompatActivity() {
         rvMain.adapter = myAdapter
 
         binding.buttonSearch.setOnClickListener {
+            if (selectedItem == null){
+                return@setOnClickListener
+            }
+
             if (binding.switch1.isChecked){
-                getLocationAndProcess(selectedFilter!!)
+                getLocationAndProcess(items.indexOf(selectedItem!!)+1,selectedFilter ?: "Ninguna")
             } else {
-                initRecyclerView(selectedItem!!, selectedFilter!!)
+                initRecyclerView(selectedItem!!, selectedFilter ?: "Ninguna")
             }
         }
     }
@@ -166,27 +196,28 @@ class SearchActivity : AppCompatActivity() {
         })
     }
 
-    private fun getLocationAndProcess(selectedFilter: String) {
+    private fun getLocationAndProcess(selectedItem: Int,selectedFilter: String) {
         val id = intent.getStringExtra("LoggedUser")?.toLong() ?: return
 
         locationTriggered.getUserLocation(id) { userLocation ->
             userLocation?.let {
-                processLocationBasedSearch(it, selectedFilter)
+                processLocationBasedSearch(it, selectedItem, selectedFilter)
             } ?: run {
                 Log.d("MainActivity", "No se pudo obtener la ubicación.")
             }
         }
     }
 
-    private fun processLocationBasedSearch(it: UserLocation, selectedFilter: String) {
+    private fun processLocationBasedSearch(it: UserLocation, selected_job: Int, selectedFilter: String) {
         val latitude = it.latitude
         val longitude = it.longitude
-        val selected_job = 2L
+
+        println("Index: $selected_job")
 
         if (latitude != null && longitude != null){
             val bd = FirebaseManager()
 
-            bd.searchWorkers(latitude, longitude, selected_job)
+            bd.searchWorkers(latitude, longitude, selected_job.toLong())
                 .addOnSuccessListener { documents ->
                     val userLocationGeoPoint = GeoPoint(latitude, longitude)
                     val workersRetrieved = mutableListOf<WorkerLocation>()
@@ -206,7 +237,7 @@ class SearchActivity : AppCompatActivity() {
 
                     println("Recibe set de trabajadores $sortedWorkers")
 
-                    val workerIds = sortedWorkers.map { it.worker_id.toString() }
+                    val workerIds = sortedWorkers .map { it.worker_id.toString() }
                     val workerIdsString = workerIds.joinToString(separator = ",")
 
                     //Ahora si lo mandamos al recycler
@@ -218,7 +249,7 @@ class SearchActivity : AppCompatActivity() {
                 }
         }
 
-        Log.d("MainActivity", "User ID: ${it.user_id}, Lat: $latitude, Lon: $longitude")
+        Log.d("MainActivity", "Coordenadas de usuario antes de la busqueda, Lat: $latitude, Lon: $longitude")
     }
 
     private fun mergeAndFilter(listWorkers: List<ContratistaItem>, listFirebase: List<WorkerLocation>, selectedFilter: String) : List<ContratistaItem>{
@@ -227,7 +258,7 @@ class SearchActivity : AppCompatActivity() {
                 b.distance_from_user, b.worker_state)
         }
 
-        return  combinedList
+        return  WorkersFilter.filterWorkers(selectedFilter,combinedList)
     }
 
     override fun onResume() {

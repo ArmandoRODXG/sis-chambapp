@@ -11,7 +11,7 @@ class JobViewHolder(view: View) : RecyclerView.ViewHolder(view)  {
     val binding = ItemJobBinding.bind(view)
 
     fun render(contratistaModel : ContratistaItem){
-        binding.tvName.text = contratistaModel.nombre
+        binding.tvName.text = contratistaModel.nombre + " " + contratistaModel.apellidos
         binding.tvUsername.text = contratistaModel.usuario
         binding.rbListJob.rating = contratistaModel.rating
         binding.distanciaTextView.text = contratistaModel.distancia?.let {
