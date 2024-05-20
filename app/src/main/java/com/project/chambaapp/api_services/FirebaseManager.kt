@@ -18,7 +18,8 @@ class FirebaseManager (){
 
     companion object { //atributos estaticos, se comparten en todas las instancias de esta clase
         var last_quadrant: String = ""
-        var last_jobs: List<Long> = listOf(0,0,0)
+        var last_jobs: List<Long> = listOf(-1,-1,-1)
+        var last_state: Int= -1
     }
 
     fun updateQuadrant (context: Context, current_location: Location) {
@@ -26,6 +27,7 @@ class FirebaseManager (){
         //Acceso a los trabajos del trabajador por patron singleton
         val worker_jobs = WorkerSingleton.getWorkerJobs(context).toList()
         val worker_id = WorkerSingleton.getWorkerId(context)
+        val worker_state = WorkerSingleton.getWorkerState(context)
 
         val data = hashMapOf(
             "current_location" to GeoPoint(current_location.latitude, current_location.longitude),
@@ -50,6 +52,11 @@ class FirebaseManager (){
             last_jobs = worker_jobs
         }
 
+        if(worker_state != last_state){ //si el estado anterior es diferente, se añade al map
+            data["state"] = worker_state
+            last_state = worker_state
+        }
+
         val documentRef = db.collection(collectionName).document(worker_id.toString())
         //crea o actualiza el registro6
         documentRef.set(data, SetOptions.merge())
@@ -63,6 +70,15 @@ class FirebaseManager (){
 
         val query = db.collection(collectionName)
             .whereIn("quadrant", quadrantsForSearch)
+            .whereArrayContains("jobs", job_needed)
+
+        return query.get()
+    }
+
+    fun staticSearchWorkers (job_needed : Long) : Task<QuerySnapshot> {
+        val cordManager = CoordinatesManager() //inicializa gestor de coordenadas
+
+        val query = db.collection(collectionName)
             .whereArrayContains("jobs", job_needed)
 
         return query.get()

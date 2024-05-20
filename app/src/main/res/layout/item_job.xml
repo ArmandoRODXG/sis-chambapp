@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
 
     >
@@ -13,10 +13,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:text="Nombre"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:text="Nombre"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,28 +25,29 @@
         android:id="@+id/tvUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="16dp"
-        android:textStyle="bold"
-        android:textSize="15dp"
-        android:text="Usuario Verificado"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvName"
+        android:layout_marginTop="12dp"
         android:gravity="center"
-        />
+        android:text="Usuario Verificado"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/rbListJob"
+        app:layout_constraintHorizontal_bias="0.557"
+        app:layout_constraintStart_toStartOf="@+id/rbListJob"
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
     <RatingBar
         android:id="@+id/rbListJob"
-        android:layout_width="235dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_width="230dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
         android:isIndicator="true"
         android:numStars="5"
         android:rating="4.5"
         android:scaleX="0.5"
         android:scaleY="0.5"
-        android:stepSize="0.1"
 
+        android:stepSize="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvUsername" />
 
@@ -53,7 +55,7 @@
         android:id="@+id/vLine"
         android:layout_width="match_parent"
         android:layout_height="20px"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/line_degraded"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -62,16 +64,41 @@
 
     <Button
         android:id="@+id/ButtonViewProfileJob"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="135dp"
+        android:layout_height="73dp"
         android:background="@color/blueB"
         android:text="Ver Perfil"
         android:textColor="@color/white"
         app:layout_constraintBottom_toTopOf="@+id/vLine"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toEndOf="@+id/rbListJob"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.723" />
+        app:layout_constraintVertical_bias="0.627" />
+
+    <TextView
+        android:id="@+id/distancia_text_view"
+        android:layout_width="230dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="100dp"
+        android:text="Cercanía"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/rbListJob"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/rbListJob"
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+    <TextView
+        android:id="@+id/text_disponibilidad"
+        android:layout_width="134dp"
+        android:layout_height="23dp"
+        android:text="disponibiliddad"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="@+id/distancia_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/ButtonViewProfileJob"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/ButtonViewProfileJob"
+        app:layout_constraintTop_toBottomOf="@+id/ButtonViewProfileJob"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

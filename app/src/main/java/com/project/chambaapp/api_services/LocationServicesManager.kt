@@ -52,7 +52,7 @@ object LocationServicesManager{
         appCompatActivity.stopService(serviceIntent)
     }
 
-    private fun requestPermissions(appCompatActivity: AppCompatActivity) {
+     fun requestPermissions(appCompatActivity: AppCompatActivity) {
         ActivityCompat.requestPermissions(
             appCompatActivity,
             arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION),

@@ -29,8 +29,30 @@ class CoordinatesManager
             val a = sin(dLat / 2).pow(2.0) + cos(lat1) * cos(lat2) * sin(dLon / 2).pow(2.0)
             val c = 2 * atan2(sqrt(a), sqrt(1 - a))
 
-            return earthRadius * c
+            return earthRadius * c * 1000 // Convertir a metros
         }
+
+        // Función para categorizar la distancia
+        fun distanceCategory(distance: Double): String {
+            return when {
+                distance < 5 -> "menos de 5 metros"
+                distance < 10 -> "menos de 10 metros"
+                distance < 20 -> "menos de 20 metros"
+                distance < 30 -> "menos de 30 metros"
+                distance < 40 -> "menos de 40 metros"
+                distance < 50 -> "menos de 50 metros"
+                distance < 70 -> "menos de 70 metros"
+                distance < 100 -> "menos de 100 metros"
+                distance < 200 -> "menos de 200 metros"
+                distance < 300 -> "menos de 300 metros"
+                distance < 500 -> "menos de 500 metros"
+                distance < 1000 -> "menos de 1 kilómetro"
+                distance < 1500 -> "menos de 1 kilómetro y medio"
+                distance < 2000 -> "menos de 2 kilómetros"
+                else -> "más de 2 kilómetros"
+            }
+        }
+
     }
 
     init {//inicializa las listas
