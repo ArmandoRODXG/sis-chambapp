@@ -28,7 +28,7 @@ class LocationServiceAPI : Service() {
                 super.onLocationResult(p0)
                 for (location in p0.locations) {
 
-                    if (location == null){
+                    if (location == null) {
                         return
                     }
 
@@ -36,7 +36,6 @@ class LocationServiceAPI : Service() {
                     fb.updateQuadrant(this@LocationServiceAPI, location)
 
                     Log.d("LocationService", "Lat: ${location.latitude}, Lon: ${location.longitude}")
-
                 }
             }
         }
@@ -57,8 +56,9 @@ class LocationServiceAPI : Service() {
     }
 
     private fun requestLocationUpdates() {
-        val locationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 90000)
-            .setMinUpdateIntervalMillis(60000) // 1 minuto
+        val locationRequest = LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 90000) // Intervalo deseado 15 segundos = 15000
+            .setMinUpdateIntervalMillis(60000) // Intervalo mínimo 10 segundos = 10000
+            .setWaitForAccurateLocation(false) // No esperar precisión
             .build()
 
         val builder = LocationSettingsRequest.Builder()
@@ -76,7 +76,7 @@ class LocationServiceAPI : Service() {
                     Manifest.permission.ACCESS_COARSE_LOCATION
                 ) != PackageManager.PERMISSION_GRANTED
             ) {
-                // TODO: Consider calling ActivityCompat#requestPermissions
+                // Solicitar permisos si no están concedidos
                 return@addOnSuccessListener
             }
             fusedLocationClient.requestLocationUpdates(

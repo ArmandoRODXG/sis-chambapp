@@ -64,6 +64,21 @@ class FirebaseManager (){
             . addOnFailureListener {  Log.e("FirebaseManager", "No se registra por managaer") }
     }
 
+    fun updateState(context: Context){
+        val worker_id = WorkerSingleton.getWorkerId(context)
+        val documentRef = db.collection(collectionName).document(worker_id.toString())
+
+        val data = hashMapOf(
+            "state" to WorkerSingleton.getWorkerState(context),
+            "updated_at" to FieldValue.serverTimestamp()
+        )
+
+        documentRef.set(data, SetOptions.merge())
+            .addOnSuccessListener  { Log.d("FirebaseManager", "Se registra por managaer") }
+            . addOnFailureListener {  Log.e("FirebaseManager", "No se registra por managaer") }
+
+    }
+
     fun searchWorkers (latitude : Double, longitude : Double, job_needed : Long ) : Task<QuerySnapshot> {
         val cordManager = CoordinatesManager() //inicializa gestor de coordenadas
         val quadrantsForSearch = cordManager.allocateIntersection(longitude,latitude)

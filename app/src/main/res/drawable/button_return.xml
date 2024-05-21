@@ -2,7 +2,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle"
     >
-    <solid android:color=" #f7685a " /> <!-- Color teal 200 -->
+    <solid android:color="#f7685a" />
     <corners android:radius="8dp" /> <!-- Radio de las esquinas, ajusta según lo necesites -->
 
 

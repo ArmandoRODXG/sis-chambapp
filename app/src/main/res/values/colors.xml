@@ -8,6 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="green">#91ee9b </color>
+    <color name="lightred">#f7685a</color>
+
 
     // Paleta de colores: https://coolors.co/palette/001524-15616d-ffecd1-ff7d00-78290f
     <color name="bottomsColor">#15616D</color>

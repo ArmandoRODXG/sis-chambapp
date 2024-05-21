@@ -12,6 +12,7 @@ import com.project.chambaapp.activities.UserViews.SearchActivity
 import com.project.chambaapp.activities.WorkerViews.ProfileJobActivity
 import com.project.chambaapp.activities.WorkerViews.RegisterJobActivity
 import com.project.chambaapp.activities.WorkerViews.VerifyActivity
+import com.project.chambaapp.api_services.WorkerSingleton
 import com.project.chambaapp.data.RetrofitClient
 import com.project.chambaapp.data.Services.ContratistasService
 import com.project.chambaapp.data.Services.IdContratistaRequest
@@ -104,6 +105,9 @@ class SignUpActivityM : AppCompatActivity() {
                         if (oficiosResponse != null) {
 //                            Log.d("Oficios", "Oficios obtenidos exitosamente: ${oficiosResponse.oficios.joinToString(", ")}")
                             Log.d("Cuerpo", oficiosResponse.toString())
+
+                            //inicializa instancia global de contratista
+                            WorkerSingleton.setAll(this@SignUpActivityM,usuarioId.toLong(), oficiosResponse.oficios)
                         }
                     } else {
                         Log.e("Oficios", "Error al obtener los oficios")
@@ -137,12 +141,12 @@ class SignUpActivityM : AppCompatActivity() {
                         if (response.isSuccessful) {
                             val loginResponse = response.body()
                             if (loginResponse != null) {
-                                obtenerOficios(loginResponse.usuarioId)
-
                                 val intent = Intent(this@SignUpActivityM, ProfileJobActivity::class.java).apply {
                                     putExtra("LoggedUser", loginResponse.usuarioId)
                                 }
                                 startActivity(intent)
+
+                                obtenerOficios(loginResponse.usuarioId)
                             }
                         } else {
                             Toast.makeText(this@SignUpActivityM, "Credenciales inválidas", Toast.LENGTH_SHORT).show()
