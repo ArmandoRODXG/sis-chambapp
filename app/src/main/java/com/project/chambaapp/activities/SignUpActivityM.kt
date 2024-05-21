@@ -9,7 +9,9 @@ import com.project.chambaapp.databinding.ActivitySignUpMBinding
 import com.project.chambaapp.R
 import com.project.chambaapp.activities.UserViews.RegisterUserActivity
 import com.project.chambaapp.activities.UserViews.SearchActivity
+import com.project.chambaapp.activities.WorkerViews.ProfileJobActivity
 import com.project.chambaapp.activities.WorkerViews.RegisterJobActivity
+import com.project.chambaapp.activities.WorkerViews.VerifyActivity
 import com.project.chambaapp.data.RetrofitClient
 import com.project.chambaapp.data.Services.ContratistasService
 import com.project.chambaapp.data.Services.IdContratistaRequest
@@ -48,7 +50,7 @@ class SignUpActivityM : AppCompatActivity() {
 
     private fun setupUsuarioFunctionality() {
         binding.btnReg.setOnClickListener {
-            val intent = Intent(this, RegisterUserActivity::class.java)
+            val intent = Intent(this, VerifyActivity::class.java)
             startActivity(intent)
         }
 
@@ -135,7 +137,7 @@ class SignUpActivityM : AppCompatActivity() {
                             if (loginResponse != null) {
                                 obtenerOficios(loginResponse.usuarioId)
 
-                                val intent = Intent(this@SignUpActivityM, SearchActivity::class.java).apply {
+                                val intent = Intent(this@SignUpActivityM, ProfileJobActivity::class.java).apply {
                                     putExtra("LoggedUser", loginResponse.usuarioId)
                                 }
                                 startActivity(intent)

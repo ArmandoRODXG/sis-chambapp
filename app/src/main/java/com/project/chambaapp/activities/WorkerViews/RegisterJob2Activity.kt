@@ -10,6 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.gson.Gson
 import com.project.chambaapp.R
+import android.content.Intent
 import com.project.chambaapp.data.Entities.ContratistaItem
 import com.project.chambaapp.data.RetrofitClient
 import com.project.chambaapp.data.Services.ContratistasService
@@ -54,6 +55,7 @@ class RegisterJob2Activity : AppCompatActivity() {
         binding.dropdownFieldOficios.setOnItemClickListener { parent, view, position, id ->
             selectedOficio = parent.getItemAtPosition(position).toString()
 //            Log.d("Oficio", "$selectedOficio")
+
         }
 
         binding.btnAddOficio.setOnClickListener {
@@ -68,6 +70,8 @@ class RegisterJob2Activity : AppCompatActivity() {
 
         binding.btnRegisterJob.setOnClickListener {
             registrarUsuario(selectedStatus!!)
+            val intent = Intent(this@RegisterJob2Activity, VerifyActivity::class.java)
+            startActivity(intent)
         }
     }
 
