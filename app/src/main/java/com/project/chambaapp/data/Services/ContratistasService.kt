@@ -1,5 +1,6 @@
 package com.project.chambaapp.data.Services
 
+import com.project.chambaapp.api_services.WorkerLocation
 import com.project.chambaapp.data.Entities.ContratistaItem
 import retrofit2.Call
 import retrofit2.http.Body
@@ -23,7 +24,11 @@ data class IdContratistaRequest(
 )
 
 data class OficioRequest(
-    val oficio: String
+    val oficio: String,
+)
+
+data class GPSSearchRequest(
+    val set: String
 )
 
 data class LoginResponse(
@@ -39,7 +44,9 @@ data class ReviewRequest(
 )
 
 data class OficiosResponse(
-    val oficios: Array<String>
+    val usuarioId: Long,
+    val message: String,
+    val oficios: Array<Long>
 )
 
 interface ContratistasService {
@@ -60,4 +67,6 @@ interface ContratistasService {
 
     @POST("/buscar_contratista")
     fun buscarContratista(@Body oficio: OficioRequest): Call<List<ContratistaItem>>
+    @POST("/buscar_contratista_por_gps")
+    fun buscarContratistaPorGPS(@Body set: GPSSearchRequest): Call<List<ContratistaItem>>
 }
