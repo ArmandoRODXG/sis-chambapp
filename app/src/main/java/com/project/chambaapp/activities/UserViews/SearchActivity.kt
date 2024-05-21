@@ -11,6 +11,7 @@ import com.google.firebase.firestore.GeoPoint
 import com.project.chambaapp.R
 import com.project.chambaapp.api_services.CoordinatesManager
 import com.project.chambaapp.api_services.FirebaseManager
+import com.project.chambaapp.api_services.LocationServicesManager
 import com.project.chambaapp.api_services.LocationTriggeredAPI
 import com.project.chambaapp.api_services.UserLocation
 import com.project.chambaapp.api_services.WorkerLocation
@@ -197,6 +198,11 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun getLocationAndProcess(selectedItem: Int,selectedFilter: String) {
+        if (!LocationServicesManager.checkPermissions(this)) {
+            LocationServicesManager.requestPermissions(this)
+            return
+        }
+
         val id = intent.getStringExtra("LoggedUser")?.toLong() ?: return
 
         locationTriggered.getUserLocation(id) { userLocation ->
