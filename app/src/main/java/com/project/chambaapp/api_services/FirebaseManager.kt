@@ -99,7 +99,7 @@ class FirebaseManager (){
         return query.get()
     }
 
-    fun getRealtimeData(worker_id : Long, listener: FirestoreDataListener){
+    fun getRealtimeLocation(worker_id : Long, listener: FirestoreDataListener){
 
         db.collection(collectionName).document(worker_id.toString()).addSnapshotListener{ snapshot, e ->
             if (e != null) {

@@ -8,12 +8,10 @@ import android.util.Log
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.GeoPoint
 import com.project.chambaapp.R
 import com.project.chambaapp.api_services.CoordinatesManager
 import com.project.chambaapp.api_services.FirebaseManager
-import com.project.chambaapp.api_services.LocationServicesManager
 import com.project.chambaapp.api_services.LocationTriggeredAPI
 import com.project.chambaapp.api_services.UserLocation
 import com.project.chambaapp.api_services.WorkerLocation
@@ -111,36 +109,14 @@ class SearchActivity : AppCompatActivity() {
 
         myAdapter = JobAdapter(baseContext, emptyList()) { contratista ->
             val intent = Intent(this@SearchActivity, ViewProfileJobActivity::class.java).apply {
-                putExtra("nombre", contratista.nombre + " " + contratista.apellidos)
+                putExtra("nombre", contratista.nombre)
                 putExtra("usuario", contratista.usuario)
-                putExtra("id",  contratista.id)
-                putExtra("rating_bar", contratista.rating)
-                putExtra("worker_area", contratista.estado)
-                putExtra("worker_description", contratista.presentacion_texto)
-                putExtra("worker_telephone", contratista.numero_celular)
+                putExtra("id",contratista.id)
                 putExtra("LoggedUser", intent.getStringExtra("LoggedUser"))
             }
             startActivity(intent)
         }
         rvMain.adapter = myAdapter
-
-        val bottomNavigationView: BottomNavigationView = binding.bottomNavigation
-        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.homeUser -> {
-
-                    true
-                }
-                R.id.profileUser -> {
-                    startActivity(Intent(this@SearchActivity,ProfileUserActivity::class.java).apply {
-                        putExtra("LoggedUser",intent.getStringExtra("LoggedUser"))
-                    })
-                    true
-
-                }
-                else -> false
-            }
-        }
 
         binding.buttonSearch.setOnClickListener {
             if (selectedItem == null){
@@ -153,7 +129,6 @@ class SearchActivity : AppCompatActivity() {
                 initRecyclerView(selectedItem!!, selectedFilter ?: "Ninguna")
             }
         }
-
     }
 
     private fun initRetrofitService(): ContratistasService {
@@ -172,7 +147,6 @@ class SearchActivity : AppCompatActivity() {
 
     private fun initRecyclerView(selectedItem: String, selectedFilter: String) {
         val idUsuario = intent.getStringExtra("LoggedUser")
-
         val request = OficioRequest(selectedItem)
         val retroData = service.buscarContratista(request)
 
@@ -224,11 +198,6 @@ class SearchActivity : AppCompatActivity() {
     }
 
     private fun getLocationAndProcess(selectedItem: Int,selectedFilter: String) {
-        if (!LocationServicesManager.checkPermissions(this)) {
-            LocationServicesManager.requestPermissions(this)
-            return
-        }
-
         val id = intent.getStringExtra("LoggedUser")?.toLong() ?: return
 
         locationTriggered.getUserLocation(id) { userLocation ->

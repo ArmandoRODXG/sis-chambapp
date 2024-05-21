@@ -29,7 +29,7 @@ object LocationServicesManager{
         }
     }
 
-    fun checkPermissions(appCompatActivity: AppCompatActivity): Boolean {
+    private fun checkPermissions(appCompatActivity: AppCompatActivity): Boolean {
         val fineLocationPermission = ContextCompat.checkSelfPermission(
             appCompatActivity,
             Manifest.permission.ACCESS_FINE_LOCATION
