@@ -1,7 +1,6 @@
 package com.project.chambaapp.activities
 
 import android.content.Intent
-import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -13,7 +12,6 @@ import com.project.chambaapp.activities.UserViews.SearchActivity
 import com.project.chambaapp.activities.WorkerViews.ProfileJobActivity
 import com.project.chambaapp.activities.WorkerViews.RegisterJobActivity
 import com.project.chambaapp.activities.WorkerViews.VerifyActivity
-import com.project.chambaapp.api_services.LocationServicesManager
 import com.project.chambaapp.data.RetrofitClient
 import com.project.chambaapp.data.Services.ContratistasService
 import com.project.chambaapp.data.Services.IdContratistaRequest
@@ -74,6 +72,8 @@ class SignUpActivityM : AppCompatActivity() {
                             if (loginResponse != null) {
                                 val intent = Intent(this@SignUpActivityM, SearchActivity::class.java).apply {
                                     putExtra("LoggedUser", loginResponse.usuarioId)
+                                    putExtra("usuario", loginResponse.username)
+
                                 }
                                 startActivity(intent)
                             }
@@ -153,23 +153,6 @@ class SignUpActivityM : AppCompatActivity() {
                         Toast.makeText(this@SignUpActivityM, "Error de conexión", Toast.LENGTH_SHORT).show()
                     }
                 })
-        }
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == LocationServicesManager.LOCATION_PERMISSION_REQUEST_CODE) {
-            if ((grantResults.isNotEmpty() &&
-                        grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                LocationServicesManager.kickstartLocationService(this)
-                Log.e("onRequestPermissionsResult", "Se validan los permisos")
-            } else {
-                Log.e("onRequestPermissionsResult", "No se validan los permisos")
-            }
         }
     }
 }

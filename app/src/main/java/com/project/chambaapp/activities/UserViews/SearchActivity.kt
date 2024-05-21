@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.GeoPoint
 import com.project.chambaapp.R
 import com.project.chambaapp.api_services.CoordinatesManager
@@ -113,11 +113,30 @@ class SearchActivity : AppCompatActivity() {
                 putExtra("nombre", contratista.nombre)
                 putExtra("usuario", contratista.usuario)
                 putExtra("id",contratista.id)
+                putExtra("rating_bar",contratista.rating)
                 putExtra("LoggedUser", intent.getStringExtra("LoggedUser"))
             }
             startActivity(intent)
         }
         rvMain.adapter = myAdapter
+
+        val bottomNavigationView: BottomNavigationView = binding.bottomNavigation
+        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.homeUser -> {
+
+                    true
+                }
+                R.id.profileUser -> {
+                    startActivity(Intent(this@SearchActivity,ProfileUserActivity::class.java).apply {
+                        putExtra("LoggedUser",intent.getStringExtra("LoggedUser"))
+                    })
+                    true
+
+                }
+                else -> false
+            }
+        }
 
         binding.buttonSearch.setOnClickListener {
             if (selectedItem == null){
@@ -130,6 +149,7 @@ class SearchActivity : AppCompatActivity() {
                 initRecyclerView(selectedItem!!, selectedFilter ?: "Ninguna")
             }
         }
+
     }
 
     private fun initRetrofitService(): ContratistasService {
@@ -148,6 +168,7 @@ class SearchActivity : AppCompatActivity() {
 
     private fun initRecyclerView(selectedItem: String, selectedFilter: String) {
         val idUsuario = intent.getStringExtra("LoggedUser")
+
         val request = OficioRequest(selectedItem)
         val retroData = service.buscarContratista(request)
 
@@ -156,7 +177,7 @@ class SearchActivity : AppCompatActivity() {
                 call: Call<List<ContratistaItem>>,
                 response: Response<List<ContratistaItem>>
             ) {
-                val data = WorkersFilter.filterWorkers(selectedFilter,response.body() ?: emptyList())
+                val data = response.body() ?: emptyList()
 
                 myAdapter.updateData(data)
 
@@ -228,12 +249,6 @@ class SearchActivity : AppCompatActivity() {
                 .addOnSuccessListener { documents ->
                     val userLocationGeoPoint = GeoPoint(latitude, longitude)
                     val workersRetrieved = mutableListOf<WorkerLocation>()
-
-                    if (documents.isEmpty) {
-                        Toast.makeText(this@SearchActivity, "Busqueda sin Resultados", Toast.LENGTH_SHORT).show()
-                        return@addOnSuccessListener
-                    }
-
                     for (document in documents){
                         val documentGeoPoint = document.getGeoPoint("current_location") ?: continue
                         workersRetrieved.add(
