@@ -46,6 +46,16 @@ class ViewProfileJobActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.buttonReportWorker.setOnClickListener {
+            val intent = Intent(this@ViewProfileJobActivity,ReporterWorkerActivity::class.java).apply {
+                putExtra("nombre",nombre)
+                putExtra("usuario",usuario)
+                putExtra("id",id)
+                putExtra("LoggedUser",idUsuario)
+            }
+            startActivity(intent)
+        }
+
         Log.d("nombre",nombre.toString())
         Log.d("usuario",usuario.toString())
     }

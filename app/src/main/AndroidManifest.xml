@@ -20,6 +20,18 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.WorkerViews.PayMethodActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.WorkerViews.PaidActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.WorkerViews.SolicitudActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.UserViews.ReporterWorkerActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.UserViews.ViewReviewsWorker"
             android:exported="false" />
         <activity
