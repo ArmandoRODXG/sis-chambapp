@@ -110,10 +110,13 @@ class SearchActivity : AppCompatActivity() {
 
         myAdapter = JobAdapter(baseContext, emptyList()) { contratista ->
             val intent = Intent(this@SearchActivity, ViewProfileJobActivity::class.java).apply {
-                putExtra("nombre", contratista.nombre)
+                putExtra("nombre", contratista.nombre + " " + contratista.apellidos)
                 putExtra("usuario", contratista.usuario)
-                putExtra("id",contratista.id)
-                putExtra("rating_bar",contratista.rating)
+                putExtra("id",  contratista.id)
+                putExtra("rating_bar", contratista.rating)
+                putExtra("worker_area", contratista.estado)
+                putExtra("worker_description", contratista.presentacion_texto)
+                putExtra("worker_telephone", contratista.numero_celular)
                 putExtra("LoggedUser", intent.getStringExtra("LoggedUser"))
             }
             startActivity(intent)
