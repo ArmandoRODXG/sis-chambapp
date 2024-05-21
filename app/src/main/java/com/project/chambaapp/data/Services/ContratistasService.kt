@@ -33,8 +33,13 @@ data class GPSSearchRequest(
 
 data class LoginResponse(
     val message: String,
-    val usuarioId: String
+    val usuarioId: String,
+    val Nombre: String,
+    val Apellidos: String,
+    val Usuario: String,
+    val Oficios: String
 )
+
 data class ReviewRequest(
     val Descripcion: String,
     val idContratista: String,

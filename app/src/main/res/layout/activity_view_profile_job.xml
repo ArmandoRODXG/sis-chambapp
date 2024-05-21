@@ -8,7 +8,10 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="NotSibling">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -17,13 +20,13 @@
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="112dp"
-                android:layout_height="170dp"
+                android:layout_width="111dp"
+                android:layout_height="137dp"
                 android:src="@drawable/avatar_image"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                tools:ignore="UnknownIdInLayout" />
 
             <View
                 android:id="@+id/vLine3"
@@ -46,99 +49,135 @@
                 android:id="@+id/vLine2"
                 android:layout_width="match_parent"
                 android:layout_height="20px"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="320dp"
                 android:background="@drawable/line_degraded"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/rbProfileViewJob" />
+                app:layout_constraintTop_toBottomOf="@+id/vLine" />
+
+            <TextView
+                android:id="@+id/textViewtelefono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="84dp"
+                android:text="Telefono de Contacto"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView15"
+                app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
             <TextView
                 android:id="@+id/textView12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="4dp"
                 android:text="Zona de Trabajo"
-                android:textSize="14sp"
+                android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvProfileViewJobContacto" />
+                app:layout_constraintStart_toStartOf="@+id/textView8"
+                app:layout_constraintTop_toBottomOf="@+id/tvProfileViewJobOficios" />
 
             <TextView
                 android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
                 android:layout_marginTop="12dp"
                 android:text="Valoraciones"
-                android:textSize="14sp"
+                android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvProfileViewJobZona" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView8"
+                app:layout_constraintTop_toBottomOf="@+id/vLine" />
 
             <TextView
                 android:id="@+id/tvProfileViewJobZona"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="12dp"
                 android:text="xxxxxxxxxx"
-                android:textSize="10sp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/textView12"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/textView12"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+            <TextView
+                android:id="@+id/tvProfileViewJobTelephon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="+52xxxxxxxxxx"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/textViewtelefono"
+                app:layout_constraintHorizontal_bias="0.488"
+                app:layout_constraintStart_toStartOf="@+id/textViewtelefono"
+                app:layout_constraintTop_toBottomOf="@+id/textViewtelefono" />
 
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
-                android:text="Contacto"
-                android:textSize="14sp"
+                android:layout_marginTop="56dp"
+                android:text="Información"
+                android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textView8"
+                app:layout_constraintHorizontal_bias="0.117"
+                app:layout_constraintStart_toStartOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/tvProfileViewJobOficios" />
 
             <TextView
-                android:id="@+id/tvProfileViewJobContacto"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="12dp"
-                android:text="xxxxxxxxxx"
-                android:textSize="10sp"
+                android:id="@+id/tvProfileViewJobInfomation"
+                android:layout_width="406dp"
+                android:layout_height="132dp"
+                android:layout_marginStart="12dp"
+                android:background="@android:color/white"
+                android:lineSpacingExtra="4dp"
+                android:padding="8dp"
+                android:text="Este es un párrafo de ejemplo que contiene varias líneas de texto. La longitud del texto debería ser suficiente para ocupar 4-6 renglones en una pantalla típica de dispositivo móvil. Puedes ajustar este texto según sea necesario para que se ajuste a tus necesidades específicas."
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toTopOf="@+id/vLine2"
+                app:layout_constraintEnd_toEndOf="@+id/textView9"
+                app:layout_constraintHorizontal_bias="0.036"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+                app:layout_constraintTop_toBottomOf="@+id/textView9"
+                app:layout_constraintVertical_bias="1.0" />
 
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 android:text="Oficios"
-                android:textSize="14sp"
+                android:textSize="15sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvProfileViewJobUser" />
+                app:layout_constraintTop_toBottomOf="@+id/vLine" />
 
             <TextView
                 android:id="@+id/tvProfileViewJobOficios"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="12dp"
-                android:text="xxxxxxxxxx"
-                android:textSize="10sp"
-                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="188dp"
+                android:layout_height="79dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:background="@android:color/white"
+                android:lineSpacingExtra="4dp"
+                android:padding="8dp"
+                android:text="Este es un texto\nque debe ocupar tres\nrenglones máximo 20\ncaracteres por línea."
+                android:textColor="@android:color/black"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
             <TextView
                 android:id="@+id/tvProfileViewJobUsername"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="336dp"
+                android:layout_height="32dp"
                 android:text="Nombre"
+                android:textAlignment="center"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -149,6 +188,7 @@
                 android:id="@+id/vLine"
                 android:layout_width="match_parent"
                 android:layout_height="20px"
+                android:layout_marginTop="108dp"
                 android:background="@drawable/line_degraded"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -156,39 +196,30 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvProfileViewJobUsername" />
 
             <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="Nombre de Usuario"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/vLine" />
-
-            <TextView
                 android:id="@+id/tvProfileViewJobUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 android:text="xxxxxxxxxx"
-                android:textSize="10sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/tvProfileViewJobUsername"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="@+id/tvProfileViewJobUsername"
+                app:layout_constraintTop_toBottomOf="@+id/tvProfileViewJobUsername" />
 
             <RatingBar
                 android:id="@+id/rbProfileViewJob"
                 android:layout_width="232dp"
                 android:layout_height="48dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:isIndicator="true"
                 android:numStars="5"
                 android:rating="4.5"
                 android:scaleX="0.5"
                 android:scaleY="0.5"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/textView15"
                 app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
             <Button
@@ -224,6 +255,36 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/vLine3" />
 
+            <TextView
+                android:id="@+id/distancia_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="Distancia"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/tvProfileViewJobUsername"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="@+id/tvProfileViewJobUsername"
+                app:layout_constraintTop_toBottomOf="@+id/tvProfileViewJobUsername" />
+
+            <TextView
+                android:id="@+id/disponibilidad_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="76dp"
+                android:text="Disponibilidad"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/tvProfileViewJobUsername"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="@+id/tvProfileViewJobUsername"
+                app:layout_constraintTop_toBottomOf="@+id/tvProfileViewJobUsername" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </ScrollView>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
