@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.GeoPoint
@@ -155,7 +156,7 @@ class SearchActivity : AppCompatActivity() {
                 call: Call<List<ContratistaItem>>,
                 response: Response<List<ContratistaItem>>
             ) {
-                val data = response.body() ?: emptyList()
+                val data = WorkersFilter.filterWorkers(selectedFilter,response.body() ?: emptyList())
 
                 myAdapter.updateData(data)
 
@@ -227,6 +228,13 @@ class SearchActivity : AppCompatActivity() {
                 .addOnSuccessListener { documents ->
                     val userLocationGeoPoint = GeoPoint(latitude, longitude)
                     val workersRetrieved = mutableListOf<WorkerLocation>()
+
+                    if (documents.isEmpty) {
+                        return@addOnSuccessListener
+                        Toast.makeText(this@SearchActivity, "Busqueda sin Resultados", Toast.LENGTH_SHORT).show()
+
+                    }
+
                     for (document in documents){
                         val documentGeoPoint = document.getGeoPoint("current_location") ?: continue
                         workersRetrieved.add(
