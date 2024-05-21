@@ -37,7 +37,7 @@
         app:layout_constraintEnd_toEndOf="@id/btnRegisterJob2"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="@id/btnRegisterJob2"
-        app:layout_constraintTop_toBottomOf="@+id/btnLog"
+
         tools:textStyle="bold" />
 
     <androidx.appcompat.widget.AppCompatButton

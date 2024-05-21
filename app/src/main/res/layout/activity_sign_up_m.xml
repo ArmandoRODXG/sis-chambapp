@@ -32,7 +32,7 @@
         android:background="@drawable/rounded_text"
         android:drawableLeft="@drawable/email_svgrepo_com"
         android:drawablePadding="10dp"
-        android:hint="Correo Electrónico"
+        android:hint="Usuario"
         android:padding="8sp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
@@ -78,10 +78,10 @@
         android:id="@+id/btnReg"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/bottoms_style"
-        android:textColor="@color/black"
-        android:text="Registrarse"
         android:layout_marginEnd="50dp"
+        android:background="@drawable/bottoms_style"
+        android:text="Registrarse"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnLog"
@@ -114,6 +114,5 @@
 
 
     </androidx.appcompat.widget.AppCompatButton>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

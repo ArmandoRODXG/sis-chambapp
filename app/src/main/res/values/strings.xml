@@ -13,4 +13,8 @@
     <string name="regresar">Regresar</string>
     <string name="confirmar_contrase_a">Confirmar contraseña</string>
     <string name="contrase_a">Contraseña</string>
+    <string name="title_activity_bottom_navigation">Bottom_Navigation</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>

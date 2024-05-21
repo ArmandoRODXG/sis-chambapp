@@ -20,6 +20,19 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activities.UserViews.FavoritesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.UserViews.Navigation_Job"
+            android:exported="false" />
+        <activity
+            android:name=".activities.UserViews.AppbarActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.Bottom_Navigation"
+            android:exported="false"
+            android:label="@string/title_activity_bottom_navigation" />
+        <activity
             android:name=".activities.UserViews.ViewReviewsWorker"
             android:exported="false" />
         <activity

@@ -111,6 +111,7 @@ class SearchActivity : AppCompatActivity() {
                 putExtra("nombre", contratista.nombre)
                 putExtra("usuario", contratista.usuario)
                 putExtra("id",contratista.id)
+                putExtra("rating_bar",contratista.rating)
                 putExtra("LoggedUser", intent.getStringExtra("LoggedUser"))
             }
             startActivity(intent)
@@ -128,6 +129,7 @@ class SearchActivity : AppCompatActivity() {
                 initRecyclerView(selectedItem!!, selectedFilter ?: "Ninguna")
             }
         }
+
     }
 
     private fun initRetrofitService(): ContratistasService {
@@ -146,6 +148,7 @@ class SearchActivity : AppCompatActivity() {
 
     private fun initRecyclerView(selectedItem: String, selectedFilter: String) {
         val idUsuario = intent.getStringExtra("LoggedUser")
+
         val request = OficioRequest(selectedItem)
         val retroData = service.buscarContratista(request)
 
