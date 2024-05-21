@@ -1,7 +1,10 @@
 package com.project.chambaapp.activities.UserViews
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.project.chambaapp.R
 import com.project.chambaapp.databinding.ActivityProfileUserBinding
 
@@ -13,28 +16,29 @@ class ProfileUserActivity : AppCompatActivity() {
         binding = ActivityProfileUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        /*val usuario = intent.getStringExtra("usuario")
-        val idUsuario = intent.getStringExtra("LoggedUser").toString()
-        val nombre = intent.getStringExtra("nombre")
-        val correo = intent.getStringExtra("correo")
-        val password = intent.getStringExtra("password")
+        val usuario = intent.getStringExtra("usuario")
+        Log.d("data",usuario.toString())
 
-        binding.cajaNombreUsuario.text = usuario.toString()
-        binding.cajaNombre.text = nombre.toString()
-        binding.cajaCorreo.text = usuario.toString()
-        binding.cajaPassword.text = password.toString()
-        */
 
-        /*
 
-        // Configurar el botón para cambiar la edición de las cajas de texto
-        binding.btnEditar.setOnClickListener {//no esta funcionando
-            binding.cajaNombreUsuario.isEnabled = true
-            binding.cajaNombre.isEnabled = true
-            binding.cajaCorreo.isEnabled = true
-            binding.cajaPassword.isEnabled = true
-            
+
+        val bottomNavigationView: BottomNavigationView = binding.bottomNavigation
+        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.homeUser -> {
+                    startActivity(Intent(this@ProfileUserActivity,SearchActivity::class.java).apply {
+                        putExtra("LoggedUser",intent.getStringExtra("LoggedUser"))
+                    })
+                    true
+                }
+                R.id.profileUser -> {
+
+                    true
+
+                }
+
+                else -> false
+            }
         }
-         */
     }
 }

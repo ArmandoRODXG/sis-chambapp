@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.GeoPoint
 import com.project.chambaapp.R
 import com.project.chambaapp.api_services.CoordinatesManager
@@ -118,6 +119,24 @@ class SearchActivity : AppCompatActivity() {
             startActivity(intent)
         }
         rvMain.adapter = myAdapter
+
+        val bottomNavigationView: BottomNavigationView = binding.bottomNavigation
+        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.homeUser -> {
+
+                    true
+                }
+                R.id.profileUser -> {
+                    startActivity(Intent(this@SearchActivity,ProfileUserActivity::class.java).apply {
+                        putExtra("LoggedUser",intent.getStringExtra("LoggedUser"))
+                    })
+                    true
+
+                }
+                else -> false
+            }
+        }
 
         binding.buttonSearch.setOnClickListener {
             if (selectedItem == null){

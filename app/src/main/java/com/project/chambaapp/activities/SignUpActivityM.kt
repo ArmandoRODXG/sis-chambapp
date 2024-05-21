@@ -72,6 +72,8 @@ class SignUpActivityM : AppCompatActivity() {
                             if (loginResponse != null) {
                                 val intent = Intent(this@SignUpActivityM, SearchActivity::class.java).apply {
                                     putExtra("LoggedUser", loginResponse.usuarioId)
+                                    putExtra("usuario", loginResponse.username)
+
                                 }
                                 startActivity(intent)
                             }

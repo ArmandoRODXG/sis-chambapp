@@ -58,29 +58,6 @@ class ViewProfileJobActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val bottomNavigationView: BottomNavigationView = binding.bottomNavigation
-        bottomNavigationView.setOnNavigationItemSelectedListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.homeUser -> {
-
-//                    cargarFavoritos()
-                    true
-                }
-
-                R.id.profileUser -> {
-
-//                    Toast.makeText(this, "Profile selected", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this@ViewProfileJobActivity,FavoritesActivity::class.java).apply {
-                        putExtra("LoggedUser",idUsuario)
-                    })
-                    true
-
-                }
-
-                else -> false
-            }
-        }
-
         binding.buttonReportWorker.setOnClickListener {
 //            val numeroTelefono = "+523322485961" // Remplaza con el número real
 //            val mensajePrecompuesto = "Hola, me pongo en contacto a través de ChabApp y estoy interesado en contratar sus servicios." // Personaliza el mensaje

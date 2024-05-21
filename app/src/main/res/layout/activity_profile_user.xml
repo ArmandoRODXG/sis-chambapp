@@ -31,16 +31,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
-    <EditText
+    <TextView
         android:id="@+id/cajaNombreUsuario"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="text"
+        android:focusable="false"
         android:text="*********"
         android:textSize="14sp"
-        android:focusable="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/etiquetaNombreUsuario"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
@@ -59,87 +58,80 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etiquetaNombreUsuario" />
 
-    <EditText
+    <TextView
         android:id="@+id/cajaCorreo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:text="*********"
-        android:inputType="textEmailAddress"
         android:focusable="false"
+        android:inputType="textEmailAddress"
+        android:text="*********"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/etiquetaCorreo"
-        app:layout_constraintTop_toBottomOf="@+id/etiquetaNombreUsuario" />
+        app:layout_constraintTop_toBottomOf="@+id/cajaNombreUsuario" />
 
     <TextView
         android:id="@+id/etiquetaPassword"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="195dp"
+        android:layout_height="21dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="28dp"
         android:text="Contraseña"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/cajaPassword"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etiquetaCorreo" />
+        app:layout_constraintTop_toBottomOf="@+id/etiquetaNombre" />
 
-    <EditText
+    <TextView
         android:id="@+id/cajaPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="28dp"
         android:ems="10"
-        android:text="*********"
-        android:inputType="textPassword"
         android:focusable="false"
+        android:inputType="textPassword"
+        android:text="*********"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/etiquetaPassword"
         app:layout_constraintTop_toBottomOf="@+id/cajaCorreo" />
 
     <TextView
         android:id="@+id/etiquetaNombre"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="185dp"
+        android:layout_height="21dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
         android:text="Nombre"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/cajaNombre"
+        app:layout_constraintEnd_toStartOf="@+id/cajaPassword"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajaPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/etiquetaCorreo" />
 
-    <EditText
+    <TextView
         android:id="@+id/cajaNombre"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="143dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:focusable="false"
         android:inputType="text"
         android:text="************"
         android:textSize="14sp"
-        android:focusable="false"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/etiquetaNombre"
+        app:layout_constraintHorizontal_bias="0.439"
+        app:layout_constraintStart_toEndOf="@+id/etiquetaPassword"
         app:layout_constraintTop_toBottomOf="@+id/cajaPassword" />
-
-    <TextView
-        android:id="@+id/etiquetaApellido"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp" />
 
     <Button
         android:id="@+id/btnEditar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="88dp"
         android:text="Editar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.092"
@@ -178,5 +170,15 @@
         app:layout_constraintHorizontal_bias="0.118"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/botonReseñas" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:menu="@menu/bottom_nav_menu"
+        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
