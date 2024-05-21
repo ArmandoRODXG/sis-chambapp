@@ -230,9 +230,8 @@ class SearchActivity : AppCompatActivity() {
                     val workersRetrieved = mutableListOf<WorkerLocation>()
 
                     if (documents.isEmpty) {
-                        return@addOnSuccessListener
                         Toast.makeText(this@SearchActivity, "Busqueda sin Resultados", Toast.LENGTH_SHORT).show()
-
+                        return@addOnSuccessListener
                     }
 
                     for (document in documents){
