@@ -22,7 +22,7 @@ class PayActivity : AppCompatActivity() {
         }
 
         binding.btnSkip.setOnClickListener {
-            val intent = Intent(this@PayActivity,SignUpActivityM::class.java).apply {
+             val intent = Intent(this@PayActivity, ProfileJobActivity::class.java).apply {
 
             }
             startActivity(intent)
