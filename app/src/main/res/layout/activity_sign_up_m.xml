@@ -5,9 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.SignUpActivityM"
-    android:background="@color/bottomsColor"
-    >
+    android:background="@color/white"
+    tools:context=".activities.SignUpActivityM">
 
 
     <TextView
@@ -15,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ChambApp"
-        android:textColor="#E6E6E6"
+        android:textColor="#040303"
         android:textSize="35dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/nombre"
@@ -29,13 +28,13 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:layout_marginVertical="10dp"
-        android:background="@drawable/rounded_text"
+        android:background="@color/myEmptyRatingColor"
         android:drawableLeft="@drawable/email_svgrepo_com"
         android:drawablePadding="10dp"
         android:hint="Usuario"
         android:padding="8sp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColor="#000000"
+        android:textColorHint="#6E6A6A"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@id/contrasenia"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,14 +46,14 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:layout_marginVertical="20dp"
-        android:background="@drawable/rounded_text"
+        android:background="@color/myEmptyRatingColor"
         android:drawableLeft="@drawable/password_svgrepo_com"
         android:drawablePadding="10dp"
         android:hint="Contraseña"
         android:padding="8sp"
         android:password="true"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
+        android:textColor="#000000"
+        android:textColorHint="#6E6A6A"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@id/btnLog"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,15 +63,14 @@
         android:id="@+id/btnLog"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/bottoms_style"
-        android:textColor="@color/black"
-        android:text="Iniciar Sesión"
         android:layout_marginStart="50dp"
+        android:background="@drawable/bottoms_style"
+        android:text="Iniciar Sesión"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnReg"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnReg"
@@ -81,7 +79,7 @@
         android:layout_marginEnd="50dp"
         android:background="@drawable/bottoms_style"
         android:text="Registrarse"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnLog"
@@ -91,15 +89,15 @@
         android:id="@+id/textMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="&quot;Una barda con un solo click&quot;\n-Joaquin"
-        android:textSize="20dp"
+        android:layout_marginBottom="50pt"
         android:gravity="center"
+        android:text="&quot;Una barda con un solo click&quot;\n-Joaquin"
+        android:textColor="#050505"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLog"
-        android:layout_marginBottom="50pt"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/btnLog" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/recuperarPassword"
@@ -109,8 +107,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textMain"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/textMain">
 
 
     </androidx.appcompat.widget.AppCompatButton>
