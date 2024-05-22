@@ -3,6 +3,7 @@ package com.project.chambaapp.activities.WorkerViews
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Intent
+import com.project.chambaapp.activities.SignUpActivityM
 import com.project.chambaapp.databinding.ActivityPayBinding
 
 class PayActivity : AppCompatActivity() {
@@ -21,7 +22,7 @@ class PayActivity : AppCompatActivity() {
         }
 
         binding.btnSkip.setOnClickListener {
-            val intent = Intent(this@PayActivity,ProfileJobActivity::class.java).apply {
+            val intent = Intent(this@PayActivity,SignUpActivityM::class.java).apply {
 
             }
             startActivity(intent)

@@ -37,7 +37,7 @@ class RegisterOfficeJob : AppCompatActivity() {
 
         val oficiosString = intent.getStringExtra("oficios")
         val oficioItems = if (!oficiosString.isNullOrEmpty()) {
-            oficiosString.split(",")
+            oficiosString.split(",\\s*".toRegex())
         } else {
             emptyList()
         }
@@ -86,9 +86,12 @@ class RegisterOfficeJob : AppCompatActivity() {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
                     showToast("Trabajo registrado correctamente")
-                    startActivity(Intent(this@RegisterOfficeJob,ViewMyJobsActivity::class.java).apply{
-                        putExtra("LoggedUser",idContratistaString)
-                    })
+                    val intent = Intent(this@RegisterOfficeJob, ViewMyJobsActivity::class.java).apply {
+                        putExtra("LoggedUser", idContratistaString)
+                        flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    }
+                    startActivity(intent)
+                    finish()
                 } else {
                     showToast("Error al agregar trabajo: ${response.code()}")
                 }

@@ -7,6 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.project.chambaapp.R
 import android.content.Intent
+import com.project.chambaapp.activities.SignUpActivityM
 import com.project.chambaapp.databinding.ActivityPaidBinding
 
 class PaidActivity : AppCompatActivity() {
@@ -18,7 +19,7 @@ class PaidActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnNext.setOnClickListener {
-            val intent = Intent(this@PaidActivity, ProfileJobActivity::class.java).apply {
+            val intent = Intent(this@PaidActivity, SignUpActivityM::class.java).apply {
             }
             startActivity(intent)
         }

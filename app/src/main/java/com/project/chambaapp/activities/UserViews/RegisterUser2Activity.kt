@@ -1,8 +1,11 @@
 package com.project.chambaapp.activities.UserViews
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.project.chambaapp.activities.SignUpActivityM
+import com.project.chambaapp.activities.WorkerViews.ViewMyJobsActivity
 import com.project.chambaapp.data.Entities.UsuarioItem
 import com.project.chambaapp.data.RetrofitClient
 import com.project.chambaapp.data.Services.ContratistasService
@@ -57,6 +60,11 @@ class RegisterUser2Activity : AppCompatActivity() {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
                     showToast("Usuario registrado correctamente")
+                    val intent = Intent(this@RegisterUser2Activity, SignUpActivityM::class.java).apply {
+                        flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+                    }
+                    startActivity(intent)
+                    finish()
                 } else {
                     showToast("Error al registrar usuario: ${response.code()}")
                 }

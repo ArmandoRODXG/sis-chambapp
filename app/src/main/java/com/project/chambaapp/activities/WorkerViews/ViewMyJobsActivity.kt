@@ -24,20 +24,19 @@ class ViewMyJobsActivity : AppCompatActivity() {
     private lateinit var service: ContratistasService
     private lateinit var rvMain : RecyclerView
     private lateinit var myAdapter: ListJobAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityViewMyJobsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val idContratista = intent.getStringExtra("LoggedUser")
         val oficios = intent.getStringExtra("oficios")
-        Log.d("id",idContratista.toString())
-
-
+        Log.d("id", idContratista.toString())
 
         binding.buttonAddJob.setOnClickListener {
-            val intent = Intent(this@ViewMyJobsActivity,RegisterOfficeJob::class.java).apply{
-                putExtra("LoggedUser",idContratista)
-                putExtra("oficios",oficios)
+            val intent = Intent(this@ViewMyJobsActivity, RegisterOfficeJob::class.java).apply {
+                putExtra("LoggedUser", idContratista)
+                putExtra("oficios", oficios)
             }
             startActivity(intent)
         }
@@ -46,42 +45,42 @@ class ViewMyJobsActivity : AppCompatActivity() {
         rvMain.layoutManager = LinearLayoutManager(this)
 
         service = initRetrofitService()
+    }
 
+    override fun onResume() {
+        super.onResume()
         cargarTrabajos()
     }
 
     private fun initRetrofitService(): ContratistasService {
-//        val baseUrl = "http:///trabajos/"
         val baseUrl = "https://is-chambapp-5bf6977200ac.herokuapp.com/trabajos/"
-
         return RetrofitClient.createService(baseUrl)
     }
 
-    private fun cargarTrabajos(){
+    private fun cargarTrabajos() {
         val idContratista = intent.getStringExtra("LoggedUser")?.toIntOrNull()
 
         val retroData = service.obtenerTrabajos(idContratista!!)
 
-        retroData.enqueue(object : retrofit2.Callback<List<TrabajoItem>>{
+        retroData.enqueue(object : retrofit2.Callback<List<TrabajoItem>> {
             override fun onResponse(
                 call: Call<List<TrabajoItem>>,
                 response: Response<List<TrabajoItem>>
             ) {
-                if(response.isSuccessful){
+                if (response.isSuccessful) {
                     val data = response.body() ?: emptyList()
                     Log.d("data", data.toString())
                     myAdapter = ListJobAdapter(this@ViewMyJobsActivity, data)
                     rvMain.adapter = myAdapter
-                }else {
+                } else {
                     // Manejar el caso en el que la respuesta no es exitosa
                     Toast.makeText(this@ViewMyJobsActivity, "Error: ${response.message()}", Toast.LENGTH_LONG).show()
                 }
             }
 
             override fun onFailure(call: Call<List<TrabajoItem>>, t: Throwable) {
-                Log.d("Churros", "xd call: $call  excepción: $t")
+                Log.d("Churros", "xd call: $call excepción: $t")
             }
-
         })
     }
 }
