@@ -6,38 +6,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activities.WorkerViews.PaidActivity">
+
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="207dp"
         android:layout_height="302dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/textView18"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/paloma" />
+        app:srcCompat="@drawable/paloma"
+        tools:layout_editor_absoluteX="102dp"
+        tools:layout_editor_absoluteY="132dp" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pagado"
-        android:textColor="#1C6610"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView7" />
+        android:textColor="#FF03DAC5"
+        android:textSize="50dp"
+        tools:layout_editor_absoluteX="120dp"
+        tools:layout_editor_absoluteY="404dp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="141dp"
+        android:layout_height="50dp"
         android:text="Siguiente"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView18" />
+        tools:layout_editor_absoluteX="135dp"
+        tools:layout_editor_absoluteY="633dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
