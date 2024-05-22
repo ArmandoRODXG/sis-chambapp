@@ -29,7 +29,7 @@ class ReviewActivity : AppCompatActivity() {
         val idContratista = intent.getStringExtra("id").toString()
         val idUsuario = intent.getStringExtra("LoggedUser").toString()
 
-
+        Log.d("Data",idUsuario)
         binding.tvReviewUsername.text = usuario
 
         binding.buttonPostReview.setOnClickListener {

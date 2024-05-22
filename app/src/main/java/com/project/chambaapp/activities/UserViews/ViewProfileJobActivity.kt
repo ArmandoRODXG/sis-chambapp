@@ -33,6 +33,10 @@ class ViewProfileJobActivity : AppCompatActivity() {
         val id = intent.getStringExtra("id")
 
         idUsuario = intent.getStringExtra("LoggedUser")?.toLong()!!
+
+        val idusuario = intent.getStringExtra("LoggedUser")
+
+
         val rating_value = intent.getFloatExtra("rating_bar", 0.0f)
 
         binding.tvProfileViewJobUsername.text = nombre.toString()
@@ -50,7 +54,7 @@ class ViewProfileJobActivity : AppCompatActivity() {
                 putExtra("nombre", nombre)
                 putExtra("usuario", usuario)
                 putExtra("id", id)
-                putExtra("LoggedUser", idUsuario)
+                putExtra("LoggedUser", idusuario)
             }
             startActivity(intent)
         }

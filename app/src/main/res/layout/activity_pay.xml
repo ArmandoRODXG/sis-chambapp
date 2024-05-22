@@ -11,37 +11,40 @@
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="120dp"
         android:layout_marginBottom="24dp"
         android:text="Mejorar la puntuación"
         android:textColor="#FF03DAC5"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView12"
-        tools:layout_editor_absoluteX="92dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="96dp"
         android:layout_marginBottom="24dp"
         android:text="Aumento en cotizaciones"
         android:textColor="#FF03DAC5"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/btnPay"
-        tools:layout_editor_absoluteX="92dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="56dp"
         android:layout_marginBottom="24dp"
         android:text="Aparecer en los más favoritos"
         android:textColor="#FF03DAC5"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView14"
-        tools:layout_editor_absoluteX="92dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -104,18 +107,18 @@
         android:id="@+id/btnPay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
         android:text="$89.00 por mes"
         android:textSize="20sp"
         android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="617dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnSkip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:text="Regresar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -137,13 +140,14 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="80dp"
         android:layout_marginBottom="24dp"
         android:text="Mayor alcance a personas"
         android:textColor="#FF03DAC5"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView11"
-        tools:layout_editor_absoluteX="92dp" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -156,7 +160,6 @@
         app:srcCompat="@drawable/negocio" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-        app:layout_constraintVertical_bias="0.0" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
