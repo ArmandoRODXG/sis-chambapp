@@ -1,5 +1,6 @@
 package com.project.chambaapp.activities.WorkerViews
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -23,20 +24,17 @@ class ProfileJobActivity : AppCompatActivity() {
         binding = ActivityProfileJobBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        /*val usuarioContratista = intent.getStringExtra("nombreContratista")
-        val correoContratista = intent.getStringExtra("correoContratista")
-        val contraseñaContratista = intent.getStringExtra("contraseñaContratista")
-        val especialidadContratista = intent.getStringExtra("especialidadContratista")
-        val numeroContratista = intent.getStringExtra("numeroContratista")
-        val cajaServicios = intent.getStringExtra("cajaServicios")
+        val nombre = intent.getStringExtra("nombre")
+        val oficios = intent.getStringExtra("oficios")
+        val correo = intent.getStringExtra("correo")
+        val descripcion = intent.getStringExtra("descripcion")
+        val contacto = intent.getStringExtra("contacto")
 
-        binding.nombreContratista.text = usuarioContratista.toString()
-        binding.correoContratista.text = correoContratista.toString()
-        binding.ratingContratista.text = contraseñaContratista.toString()
-        binding.especialidadContratista.text = especialidadContratista.toString()
-        binding.numeroContratista.text = numeroContratista.toString()
-        binding.cajaServicios.text = cajaServicios.toString()
-         */
+        binding.correoContratista.text = correo.toString()
+        binding.numeroContratista.text = contacto.toString()
+        binding.cajaServicios.text = descripcion.toString()
+        binding.nombreContratista.text = nombre.toString()
+        binding.especialidadContratista.text = oficios.toString()
 
         binding.chipDisponible.setOnCheckedChangeListener { compoundButton, isChecked ->
             if(isChecked){
@@ -74,6 +72,13 @@ class ProfileJobActivity : AppCompatActivity() {
 
                 fb.updateState(this@ProfileJobActivity)
             }
+        }
+
+        binding.btnAddTrabajo.setOnClickListener {
+            val intent = Intent(this@ProfileJobActivity,ViewMyJobsActivity::class.java).apply {
+                putExtra("LoggedUser",intent.getStringExtra("LoggedUser"))
+            }
+            startActivity(intent)
         }
     }
     override fun onRequestPermissionsResult(

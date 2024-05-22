@@ -6,225 +6,251 @@
     android:layout_height="match_parent"
     tools:context=".activities.WorkerViews.ProfileJobActivity">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="113dp"
-        android:layout_height="176dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/avatar_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btnEditar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="Editar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cajaServicios" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="113dp"
+                android:layout_height="176dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/avatar_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/etiquetaNombre"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="124dp"
-        android:layout_marginEnd="8dp"
-        android:text="Nombre de usuario"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/nombreContratista"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            <Button
+                android:id="@+id/btnEditar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="Editar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toEndOf="@+id/btnAddTrabajo"
+                app:layout_constraintTop_toBottomOf="@+id/cajaServicios" />
 
-    <EditText
-        android:id="@+id/nombreContratista"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="text"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/etiquetaNombre"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            <Button
+                android:id="@+id/btnAddTrabajo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="24dp"
 
-    <TextView
-        android:id="@+id/etiquetaCorreo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="16dp"
-        android:text="Correo electrónico"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/correoContratista"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etiquetaNombre" />
+                android:text="Añadir Trabajo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cajaServicios" />
 
-    <EditText
-        android:id="@+id/correoContratista"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/etiquetaCorreo"
-        app:layout_constraintTop_toBottomOf="@+id/nombreContratista" />
+            <TextView
+                android:id="@+id/nombreContratista"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:text="text"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/etiquetaNombre"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <TextView
-        android:id="@+id/etiquetaContraseña"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:text="Contraseña"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/contrasenaContratista"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etiquetaCorreo" />
+            <TextView
+                android:id="@+id/etiquetaNombre"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="8dp"
+                android:text="Nombre de usuario"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/nombreContratista"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <EditText
-        android:id="@+id/contrasenaContratista"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/etiquetaContraseña"
-        app:layout_constraintTop_toBottomOf="@+id/correoContratista" />
+            <TextView
+                android:id="@+id/correoContratista"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:text="textEmailAddress"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/etiquetaCorreo"
+                app:layout_constraintTop_toBottomOf="@+id/nombreContratista" />
 
-    <TextView
-        android:id="@+id/etiquetaOficio"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:text="Oficios"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/especialidadContratista"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etiquetaContraseña" />
+            <TextView
+                android:id="@+id/etiquetaCorreo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="8dp"
+                android:text="Correo electrónico"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/correoContratista"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etiquetaNombre" />
 
-    <EditText
-        android:id="@+id/especialidadContratista"
-        android:layout_width="189dp"
-        android:layout_height="66dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="text"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/etiquetaOficio"
-        app:layout_constraintTop_toBottomOf="@+id/contrasenaContratista" />
+            <TextView
+                android:id="@+id/contrasenaContratista"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:text="********"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/etiquetaContraseña"
+                app:layout_constraintTop_toBottomOf="@+id/correoContratista" />
 
-    <TextView
-        android:id="@+id/etiquetaContacto"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="8dp"
-        android:text="Teléfono de Contacto"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/numeroContratista"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/especialidadContratista" />
+            <TextView
+                android:id="@+id/etiquetaContraseña"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:text="Contraseña"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/contrasenaContratista"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etiquetaCorreo" />
 
-    <EditText
-        android:id="@+id/numeroContratista"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/etiquetaContacto"
-        app:layout_constraintTop_toBottomOf="@+id/especialidadContratista" />
+            <TextView
+                android:id="@+id/especialidadContratista"
+                android:layout_width="189dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:text="text"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/etiquetaOficio"
+                app:layout_constraintTop_toBottomOf="@+id/contrasenaContratista" />
 
-    <TextView
-        android:id="@+id/etiquetaServicios"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Descripción"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etiquetaContacto" />
+            <TextView
+                android:id="@+id/etiquetaOficio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="8dp"
+                android:text="Oficios"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/especialidadContratista"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etiquetaContraseña" />
 
-    <EditText
-        android:id="@+id/cajaServicios"
-        android:layout_width="0dp"
-        android:layout_height="83dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etiquetaServicios" />
+            <TextView
+                android:id="@+id/etiquetaContacto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="Teléfono de Contacto"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/numeroContratista"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/especialidadContratista" />
 
-    <TextView
-        android:id="@+id/etiquetaDisponible"
-        android:layout_width="166dp"
-        android:layout_height="25dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="Compartir Ubicación"
-        android:textAlignment="center"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/chipDisponible"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            <TextView
+                android:id="@+id/numeroContratista"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:text="phone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/etiquetaContacto"
+                app:layout_constraintTop_toBottomOf="@+id/especialidadContratista" />
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/chipDisponible"
-        android:layout_width="145dp"
-        android:layout_height="45dp"
-        android:layout_margin="8dp"
-        android:text="Desactivado"
-        app:layout_constraintBottom_toBottomOf="@+id/etiquetaDisponible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.864"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/etiquetaDisponible"
-        style="@style/CustomChipStyle"
-        app:chipBackgroundColor="@color/color_selector"/>
+            <TextView
+                android:id="@+id/etiquetaServicios"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Descripción"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etiquetaContacto" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="236dp"
-        android:layout_height="27dp"
-        android:background="@drawable/spinner_style"
-        android:contextClickable="false"
-        app:layout_constraintBottom_toTopOf="@+id/nombreContratista"
-        app:layout_constraintEnd_toEndOf="@+id/chipDisponible"
-        app:layout_constraintHorizontal_bias="0.417"
-        app:layout_constraintStart_toStartOf="@+id/etiquetaDisponible"
-        app:layout_constraintTop_toBottomOf="@+id/etiquetaDisponible"
-        app:layout_constraintVertical_bias="0.472" />
+            <TextView
+                android:id="@+id/cajaServicios"
+                android:layout_width="0dp"
+                android:layout_height="83dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:text="descripcion"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etiquetaServicios" />
+
+            <TextView
+                android:id="@+id/etiquetaDisponible"
+                android:layout_width="166dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Compartir Ubicación"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/chipDisponible"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipDisponible"
+                android:layout_width="145dp"
+                android:layout_height="45dp"
+                android:layout_margin="8dp"
+                android:text="Desactivado"
+                app:layout_constraintBottom_toBottomOf="@+id/etiquetaDisponible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.864"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/etiquetaDisponible"
+                style="@style/CustomChipStyle"
+                app:chipBackgroundColor="@color/color_selector"/>
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="236dp"
+                android:layout_height="27dp"
+                android:background="@drawable/spinner_style"
+                android:contextClickable="false"
+                app:layout_constraintBottom_toTopOf="@+id/nombreContratista"
+                app:layout_constraintEnd_toEndOf="@+id/chipDisponible"
+                app:layout_constraintHorizontal_bias="0.417"
+                app:layout_constraintStart_toStartOf="@+id/etiquetaDisponible"
+                app:layout_constraintTop_toBottomOf="@+id/etiquetaDisponible"
+                app:layout_constraintVertical_bias="0.472" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

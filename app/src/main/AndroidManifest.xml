@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +19,12 @@
         android:theme="@style/Theme.ChambaApp"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.WorkerViews.ViewMyJobsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.WorkerViews.RegisterOfficeJob"
+            android:exported="false" />
         <activity
             android:name=".activities.WorkerViews.PayMethodActivity"
             android:exported="false" />
@@ -82,11 +88,11 @@
         <activity
             android:name=".activities.SignUpActivityM"
             android:exported="false" />
+
         <service
             android:name=".api_services.LocationServiceAPI"
             android:exported="false"
             android:foregroundServiceType="location" />
-
     </application>
 
 </manifest>

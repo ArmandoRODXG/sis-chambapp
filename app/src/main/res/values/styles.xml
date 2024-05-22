@@ -16,4 +16,18 @@
         <item name="android:background">@drawable/custom_autocomplete_background</item>
     </style>
 
+    <style name="CustomTextInputLayoutBlack" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/black</item>
+        <item name="android:textColorHint">@color/black</item>
+        <item name="hintTextColor">@color/black</item>
+        <item name="endIconMode">dropdown_menu</item>
+        <item name="endIconTint">@color/black</item>
+    </style>
+
+    <!-- Define un estilo para el AutoCompleteTextView -->
+    <style name="CustomAutoCompleteTextViewBlack">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@drawable/custom_autocomplete_background</item>
+    </style>
+
 </resources>

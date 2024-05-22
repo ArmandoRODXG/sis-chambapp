@@ -126,8 +126,8 @@ class SignUpActivityM : AppCompatActivity() {
             startActivity(intent)
         }
 
-//        val baseUrl = "http:///login_contratista/"
-        val baseUrl = "https://is-chambapp-5bf6977200ac.herokuapp.com/login_contratista/"
+        val baseUrl = "http://192.168.1.2:5000/login_contratista/"
+//        val baseUrl = "https://is-chambapp-5bf6977200ac.herokuapp.com/login_contratista/"
         val service = RetrofitClient.createService<ContratistasService>(baseUrl)
 
         binding.btnLog.setOnClickListener {
@@ -143,6 +143,11 @@ class SignUpActivityM : AppCompatActivity() {
                             if (loginResponse != null) {
                                 val intent = Intent(this@SignUpActivityM, ProfileJobActivity::class.java).apply {
                                     putExtra("LoggedUser", loginResponse.usuarioId)
+                                    putExtra("nombre",loginResponse.Nombre + ' ' + loginResponse.Apellidos)
+                                    putExtra("oficios",loginResponse.Oficios)
+                                    putExtra("contacto",loginResponse.Contacto)
+                                    putExtra("correo",loginResponse.Email)
+                                    putExtra("descripcion",loginResponse.Presentacion_texto)
                                 }
                                 startActivity(intent)
 
