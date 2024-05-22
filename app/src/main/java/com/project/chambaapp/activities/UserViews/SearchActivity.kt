@@ -119,6 +119,7 @@ class SearchActivity : AppCompatActivity() {
                 putExtra("worker_description", contratista.presentacion_texto)
                 putExtra("worker_telephone", contratista.numero_celular)
                 putExtra("LoggedUser", intent.getStringExtra("LoggedUser"))
+                putExtra("oficios",contratista.oficios)
             }
             startActivity(intent)
         }

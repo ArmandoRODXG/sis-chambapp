@@ -41,6 +41,7 @@ class ViewProfileJobActivity : AppCompatActivity() {
         binding.tvProfileViewJobZona.text = intent.getStringExtra("worker_area")
         binding.tvProfileViewJobInfomation.text = intent.getStringExtra("worker_description")
         binding.tvProfileViewJobTelephon.text = intent.getStringExtra("worker_telephone")
+        binding.tvProfileViewJobOficios.text = intent.getStringExtra("oficios")
 
         setFirebaseChannels(id.toString())
         
