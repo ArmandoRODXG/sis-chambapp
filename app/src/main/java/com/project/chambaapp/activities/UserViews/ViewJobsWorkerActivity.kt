@@ -1,6 +1,5 @@
-package com.project.chambaapp.activities.WorkerViews
+package com.project.chambaapp.activities.UserViews
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,41 +7,30 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.project.chambaapp.R
-import com.project.chambaapp.adapter.FavoriteAdapter
 import com.project.chambaapp.adapter.ListJobAdapter
+import com.project.chambaapp.adapter.ListJobViewAdapter
 import com.project.chambaapp.data.Entities.TrabajoItem
 import com.project.chambaapp.data.RetrofitClient
 import com.project.chambaapp.data.Services.ContratistasService
-import com.project.chambaapp.data.Services.UsuariosService
-import com.project.chambaapp.databinding.ActivityViewMyJobsBinding
+import com.project.chambaapp.databinding.ActivityViewJobsWorkerBinding
 import retrofit2.Call
 import retrofit2.Response
 
-class ViewMyJobsActivity : AppCompatActivity() {
+class ViewJobsWorkerActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityViewMyJobsBinding
+    private lateinit var binding: ActivityViewJobsWorkerBinding
     private lateinit var service: ContratistasService
     private lateinit var rvMain : RecyclerView
-    private lateinit var myAdapter: ListJobAdapter
+    private lateinit var myAdapter: ListJobViewAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityViewMyJobsBinding.inflate(layoutInflater)
+        binding = ActivityViewJobsWorkerBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val idContratista = intent.getStringExtra("LoggedUser")
-
-        Log.d("id",idContratista.toString())
-        binding.buttonAddJob.setOnClickListener {
-            val intent = Intent(this@ViewMyJobsActivity,RegisterOfficeJob::class.java).apply{
-
-                putExtra("LoggedUser",idContratista)
-            }
-            startActivity(intent)
-        }
-
-        rvMain = binding.recyclerViewMyJobs
-        rvMain.layoutManager = LinearLayoutManager(this)
 
         service = initRetrofitService()
+
+        rvMain = binding.recyclerViewTheirJobs
+        rvMain.layoutManager = LinearLayoutManager(this)
 
         cargarTrabajos()
     }
@@ -55,7 +43,8 @@ class ViewMyJobsActivity : AppCompatActivity() {
     }
 
     private fun cargarTrabajos(){
-        val idContratista = intent.getStringExtra("LoggedUser")?.toIntOrNull()
+        val idContratista = intent.getStringExtra("id")?.toIntOrNull()
+        Log.d("idContratista",idContratista.toString())
 
         val retroData = service.obtenerTrabajos(idContratista!!)
 
@@ -67,11 +56,11 @@ class ViewMyJobsActivity : AppCompatActivity() {
                 if(response.isSuccessful){
                     val data = response.body() ?: emptyList()
                     Log.d("data", data.toString())
-                    myAdapter = ListJobAdapter(this@ViewMyJobsActivity, data)
+                    myAdapter = ListJobViewAdapter(this@ViewJobsWorkerActivity, data)
                     rvMain.adapter = myAdapter
                 }else {
                     // Manejar el caso en el que la respuesta no es exitosa
-                    Toast.makeText(this@ViewMyJobsActivity, "Error: ${response.message()}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this@ViewJobsWorkerActivity, "Error: ${response.message()}", Toast.LENGTH_LONG).show()
                 }
             }
 

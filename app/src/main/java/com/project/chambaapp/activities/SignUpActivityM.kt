@@ -126,8 +126,8 @@ class SignUpActivityM : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val baseUrl = "http://192.168.1.2:5000/login_contratista/"
-//        val baseUrl = "https://is-chambapp-5bf6977200ac.herokuapp.com/login_contratista/"
+//        val baseUrl = "http:///login_contratista/"
+        val baseUrl = "https://is-chambapp-5bf6977200ac.herokuapp.com/login_contratista/"
         val service = RetrofitClient.createService<ContratistasService>(baseUrl)
 
         binding.btnLog.setOnClickListener {

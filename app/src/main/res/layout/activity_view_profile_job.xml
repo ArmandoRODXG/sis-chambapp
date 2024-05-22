@@ -28,34 +28,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView3"
                 tools:ignore="UnknownIdInLayout" />
 
-            <View
-                android:id="@+id/vLine3"
-                android:layout_width="match_parent"
-                android:layout_height="20px"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/line_degraded"
-                app:layout_constraintTop_toBottomOf="@+id/buttonViewReviews"
-                tools:layout_editor_absoluteX="0dp" />
-
-            <View
-                android:id="@+id/vLine4"
-                android:layout_width="match_parent"
-                android:layout_height="20px"
-                android:background="@drawable/line_degraded"
-                app:layout_constraintTop_toBottomOf="@+id/buttonReportWorker"
-                tools:layout_editor_absoluteX="0dp" />
-
-            <View
-                android:id="@+id/vLine2"
-                android:layout_width="match_parent"
-                android:layout_height="20px"
-                android:layout_marginTop="320dp"
-                android:background="@drawable/line_degraded"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/vLine" />
-
             <TextView
                 android:id="@+id/textViewtelefono"
                 android:layout_width="wrap_content"
@@ -138,12 +110,10 @@
                 android:text="Este es un párrafo de ejemplo que contiene varias líneas de texto. La longitud del texto debería ser suficiente para ocupar 4-6 renglones en una pantalla típica de dispositivo móvil. Puedes ajustar este texto según sea necesario para que se ajuste a tus necesidades específicas."
                 android:textColor="@android:color/black"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toTopOf="@+id/vLine2"
                 app:layout_constraintEnd_toEndOf="@+id/textView9"
                 app:layout_constraintHorizontal_bias="0.036"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView9"
-                app:layout_constraintVertical_bias="1.0" />
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
             <TextView
                 android:id="@+id/textView8"
@@ -222,38 +192,52 @@
                 app:layout_constraintStart_toStartOf="@+id/textView15"
                 app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
+
+            <Button
+                android:id="@+id/buttonViewJobs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="4dp"
+                android:text="Ver Trabajos"
+
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvProfileViewJobInfomation" />
+
             <Button
                 android:id="@+id/buttonViewReviews"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
                 android:layout_marginTop="4dp"
-                android:text="Ver reseñas >"
+                android:layout_marginEnd="44dp"
+                android:text="Ver reseñas"
                 android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/vLine2" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvProfileViewJobInfomation" />
 
             <Button
                 android:id="@+id/buttonFormReview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="84dp"
-                android:layout_marginTop="4dp"
-                android:text="Dar Reseña >"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
+
+                android:text="Dar Reseña"
                 android:textColor="@color/black"
-                app:layout_constraintStart_toEndOf="@+id/buttonViewReviews"
-                app:layout_constraintTop_toBottomOf="@+id/vLine2" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonViewReviews" />
 
             <Button
                 android:id="@+id/buttonReportWorker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="8dp"
-                android:text="Reportar Incidente >"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:text="Reportar Incidente"
                 android:textColor="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/vLine3" />
+                app:layout_constraintTop_toBottomOf="@+id/buttonViewJobs" />
 
             <TextView
                 android:id="@+id/distancia_field"

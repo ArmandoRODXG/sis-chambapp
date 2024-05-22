@@ -31,6 +31,7 @@ class ViewProfileJobActivity : AppCompatActivity() {
         val nombre = intent.getStringExtra("nombre")
         val usuario = intent.getStringExtra("usuario")
         val id = intent.getStringExtra("id")
+
         idUsuario = intent.getStringExtra("LoggedUser")?.toLong()!!
         val rating_value = intent.getFloatExtra("rating_bar", 0.0f)
 
@@ -59,6 +60,13 @@ class ViewProfileJobActivity : AppCompatActivity() {
                 putExtra("usuario", usuario)
                 putExtra("id", id)
                 putExtra("LoggedUser", idUsuario)
+            }
+            startActivity(intent)
+        }
+
+        binding.buttonViewJobs.setOnClickListener {
+            val intent = Intent(this@ViewProfileJobActivity,ViewJobsWorkerActivity::class.java).apply {
+                putExtra("id",id)
             }
             startActivity(intent)
         }
