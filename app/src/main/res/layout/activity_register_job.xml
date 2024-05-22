@@ -158,7 +158,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bottoms_style"
         android:text="CONTINUAR"
-        android:textColor="#000000"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/inputRegisterPasswordCJob"
         app:layout_constraintStart_toStartOf="@+id/inputRegisterPasswordCJob"

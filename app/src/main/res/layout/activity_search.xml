@@ -74,6 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:background="@drawable/bottoms_style"
+                android:textColor="@color/white"
                 android:text="Buscar" />
 
         </LinearLayout>
