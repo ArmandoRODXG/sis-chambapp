@@ -77,6 +77,7 @@ class ProfileJobActivity : AppCompatActivity() {
         binding.btnAddTrabajo.setOnClickListener {
             val intent = Intent(this@ProfileJobActivity,ViewMyJobsActivity::class.java).apply {
                 putExtra("LoggedUser",intent.getStringExtra("LoggedUser"))
+                putExtra("oficios",oficios)
             }
             startActivity(intent)
         }

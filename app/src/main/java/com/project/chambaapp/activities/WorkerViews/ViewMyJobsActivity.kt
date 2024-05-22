@@ -29,12 +29,15 @@ class ViewMyJobsActivity : AppCompatActivity() {
         binding = ActivityViewMyJobsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val idContratista = intent.getStringExtra("LoggedUser")
-
+        val oficios = intent.getStringExtra("oficios")
         Log.d("id",idContratista.toString())
+
+
+
         binding.buttonAddJob.setOnClickListener {
             val intent = Intent(this@ViewMyJobsActivity,RegisterOfficeJob::class.java).apply{
-
                 putExtra("LoggedUser",idContratista)
+                putExtra("oficios",oficios)
             }
             startActivity(intent)
         }

@@ -33,9 +33,15 @@ class RegisterOfficeJob : AppCompatActivity() {
 
         var selectedOficio: String? = null
 
-        val oficioItems = listOf(
-            "Albañil","Plomero","Carpintero",
-        )
+        Log.d("Oficios",intent.getStringExtra("oficios").toString())
+
+        val oficiosString = intent.getStringExtra("oficios")
+        val oficioItems = if (!oficiosString.isNullOrEmpty()) {
+            oficiosString.split(",")
+        } else {
+            emptyList()
+        }
+
         val oficioAdapter = ArrayAdapter(this, R.layout.list_job_select, oficioItems)
 
         binding.dropdownFieldOffices.setAdapter(oficioAdapter)
@@ -54,7 +60,7 @@ class RegisterOfficeJob : AppCompatActivity() {
     }
 
     private fun initRetrofitService(): ContratistasService {
-//        val baseUrl = "http://192.168.1.2:5000/trabajos/"
+//        val baseUrl = "http:///trabajos/"
         val baseUrl = "https://is-chambapp-5bf6977200ac.herokuapp.com/trabajos/"
 
         return RetrofitClient.createService(baseUrl)

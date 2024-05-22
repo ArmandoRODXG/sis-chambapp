@@ -51,7 +51,7 @@ class SignUpActivityM : AppCompatActivity() {
 
     private fun setupUsuarioFunctionality() {
         binding.btnReg.setOnClickListener {
-            val intent = Intent(this, VerifyActivity::class.java)
+            val intent = Intent(this, RegisterUserActivity::class.java)
             startActivity(intent)
         }
 
